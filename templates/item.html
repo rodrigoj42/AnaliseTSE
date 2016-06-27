@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="shortcut icon" href="{{url_for('static',filename='assets/ico/favicon.png')}}">
 
     <title>Onassis - Bootstrap 3 Theme</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{url_for('static',filename='assets/css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link href="{{url_for('static',filename='assets/css/main.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="{{url_for('static',filename='assets/css/font-awesome.min.css')}}">
 
-    <script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/Chart.js"></script>
-	<script src="assets/js/modernizr.custom.js"></script>
+    <script src="{{url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+	<script src="{{url_for('static',filename='assets/js/Chart.js')}}"></script>
+	<script src="{{url_for('static',filename='assets/js/modernizr.custom.js')}}"></script>
 	
 
 	
@@ -27,8 +27,8 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
+      <script src="{{url_for('static',filename='assets/js/html5shiv.js')}}"></script>
+      <script src="{{url_for('static',filename='assets/js/respond.min.js')}}"></script>
     <![endif]-->
   </head>
 
@@ -37,7 +37,7 @@
 	<!-- Menu -->
 	<nav class="menu" id="theMenu">
 		<div class="menu-wrap">
-			<h1 class="logo"><a href="index.html#home">Onassis</a></h1>
+			<h1 class="logo"><a href="home">Análise TSE</a></h1>
 			<i class="icon-remove menu-close"></i>
 			<a href="#home" class="smoothScroll">Home</a>
 			<a href="#services" class="smoothScroll">Services</a>
@@ -125,10 +125,10 @@
 					  <!-- Wrapper for slides -->
 					  <div class="carousel-inner">
 					    <div class="item active">
-					      <img src="assets/img/item-01.png" alt="">
+					      <img src="{{url_for('static',filename='assets/img/item-01.png')}}" alt="">
 					    </div>
 					    <div class="item">
-					      <img src="assets/img/item-02.png" alt="">
+					      <img src="{{url_for('static',filename='assets/img/item-02.png')}}" alt="">
 					    </div>
 					  </div>
 					</div>
@@ -219,10 +219,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	<script src="assets/js/classie.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/retina.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="{{url_for('static',filename='assets/js/classie.js')}}"></script>
+    <script src="{{url_for('static',filename='assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='assets/js/retina.js')}}"></script>
+	<script src="{{url_for('static',filename='assets/js/main.js')}}"></script>
 	<script>
 	$('.carousel').carousel({
 	  interval: 3500
