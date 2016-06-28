@@ -101,7 +101,8 @@ val sexoPorcentado         =         sexoCombinado.map(e => (e._1, (e._2._1._1, 
 // ANÁLISE ESTATÍSTICA
 // ===================
 
-// [Outliers]
+// OUTLIERS
+// ========
 
 // candidato mais votado na seção
 // (seria bom normalizar isso aqui)
@@ -119,7 +120,8 @@ val votosFaixaEtaria  =  votosMax.join(faixaEtariaMax).sortBy(e => e._2._2._2, f
 val votosEscolaridade = votosMax.join(escolaridadeMax).sortBy(e => e._2._2._2, false)
 val votosSexo         =         votosMax.join(sexoMax).sortBy(e => e._2._2._2, false)
 
-// [Correlações]
+// CORRELAÇÕES
+// ===========
 
 // % de cada candidato combinada com distribuição demográfica (ambos por seção)
 val estadoCivilRelacionado  = votosPorcentagem.map(e => (e._1, (e._2,e._3))).join(estadoCivilPorcentado)
@@ -144,10 +146,28 @@ val votosMascSortedPercent = votosMarinaMascSorted.map(e => e._2._2._2)
 // correlação entre votos da Marina e % de homens na seção
 val correlacaoMarinaMasc: Double = Statistics.corr(votosMarinaSortedPercent, votosMascSortedPercent, "pearson")
 
+// TIPO DE SEÇÃO EM QUE O CANDIDATO MELHOR PERFORMA
+// ================================================
+
+// distribuição demográfica
+val eleitoresPerfil = eleitores.map(e=> (e(6) + "." + e(7),  (e(9), e(11), e(13), e(15), e(16).dropRight(1).toInt))).join(eleitoresSecao)
+val perfilPorcentado = eleitoresPerfil.map(e=> (e._1, (e._2._1._1,e._2._1._2,e._2._1._3,e._2._1._4,e._2._1._5.toFloat*100/e._2._2.toFloat)))
+
+// perfil com maior % (por seção)
+val votosPerfilMax = perfilPorcentado.reduceByKey((a, b) => (if (a._5 > b._5) a else b))
+// combinação de candidato mais votado com perfil mais comum
+val maisVotadosPerfil = votosMax.join(votosPerfilMax)
+
+// mágica (reduceByKey)
+val qntdVotosPorPerfil = maisVotadosPerfil.map(e=> ((e._2._1._1, e._2._2._1, e._2._2._2,e._2._2._3,e._2._2._4),1)).reduceByKey((a,b)=> a+b)
+
+// analise perfil por candidato
+val marinaPorPerfil = qntdVotosPorPerfil.filter(e=> (e._1._1 =="MARINA SILVA")).sortBy(e=> e._2,false)
+val dilmaPorPerfil = qntdVotosPorPerfil.filter(e=> (e._1._1 =="DILMA")).sortBy(e=> e._2,false)
+
+
 // TESTES DE VALIDAÇÃO
 // ===================
-val teste = votosPorcentagem.filter(e => (e._1 == "10.150"))
-val teste = votosPresidenteMapeada.join(eleitoresSecao).map(e => (e._1, e._2._1._2.toDouble*100/e._2._2)).reduceByKey((a,b) => a+b)
 
 
 // ANALISE HISTORICA
