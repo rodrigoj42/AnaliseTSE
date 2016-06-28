@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{url_for('static',filename='assets/ico/favicon.png')}}">
 
-    <title>An&aacute;lise TSE</title>
+    <title>Análise TSE</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{url_for('static',filename='assets/css/bootstrap.css')}}" rel="stylesheet">
@@ -39,15 +39,10 @@
 		<div class="menu-wrap">
 			<h1 class="logo"><a href="home">Análise TSE</a></h1>
 			<i class="icon-remove menu-close"></i>
-			<a href="#home" class="smoothScroll">Home</a>
-			<a href="#services" class="smoothScroll">Services</a>
-			<a href="#portfolio" class="smoothScroll">Portfolio</a>
-			<a href="#about" class="smoothScroll">About</a>
-			<a href="#contact" class="smoothScroll">Contact</a>
-			<a href="#"><i class="icon-facebook"></i></a>
-			<a href="#"><i class="icon-twitter"></i></a>
-			<a href="#"><i class="icon-dribbble"></i></a>
-			<a href="#"><i class="icon-envelope"></i></a>
+			<a href="#home" class="smoothScroll">Início</a>
+			<a href="#w" class="smoothScroll">Nosso trabalho</a>
+			<a href="#graphs" class="smoothScroll">Gráficos</a>
+			<a href="#about" class="smoothScroll">Equipe</a>
 		</div>
 		
 		<!-- Menu button -->
@@ -61,8 +56,8 @@
 	<div id="headerwrap">
 		<div class="container">
 			<br>
-			<h1>Analise TSE</h1>
-			<h2>Trabalho de Big Data para UFRJ</h2>
+			<h1>Análise TSE</h1>
+			<h2>Trabalho de Big Data - UFRJ</h2>
 			<div class="row">
 				<br>
 				<br>
@@ -79,7 +74,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-				<h3>Bem vidos ao site de análise dos dados do TSE. Aqui você poderá fazer consultas aos perfis de cada eleitor por zona eleitoral, além dos 
+				<h3>Esta é a página para visualização do trabalho do curso <bold>BIG DATA</bold> da <bold>Universidade Federal do Rio de Janeiro</bold>, que consiste em uma análise do eleitor médio Brasileiro de acordo com <Lista de filtros>. O framework utilizado <bold>- Apache Spark - </bold>possibilitou uma análise da grande quantidade de dados (Big Data) rápida e eficaz. As informações foram extraídas do site <Nome da página, link e data do acesso>. 
 				</h3>
 				</div>
 			</div>
@@ -87,7 +82,7 @@
 	</div><!-- /w -->
 	
 	<!-- ========== SERVICES - GREY SECTION ========== -->
-	<section id="services" name="services"></section>
+	<!--<section id="graphs" name="graphs"></section>
 	<div id="g">
 		<div class="container">
 			<div class="row">
@@ -115,17 +110,27 @@
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
 				</div>
 			</div>
-		</div><!-- /container -->
+		</div><!-- /container --
 	</div><!-- /g -->
 	
 	<!-- ========== CHARTS - DARK GREY SECTION ========== -->
+	<section id="graphs" name="graphs"></section>
 	<div id="dg">
 		<div class="container">
 			<div class="row">
-				<h3>SOME CHARTS</h3>
+				<h3>GRÁFICOS</h3>
 				<br>
 				<br>
-				<div class="col-lg-4">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8">
+					<br>
+					<h4>Porcentagem de votos por Faixa Etária</h4>
+					<br>
+					<a href="{{url_for('static',filename='assets/img/marina_25_34.png')}}" data-toggle="popover" data-trigger="focus" data-content="{{url_for('static',filename='assets/img/icon_marina_25_34.png')}}"><img src="{{url_for('static',filename='assets/img/icon_marina_25_34.png')}}"></img></a>
+					<h5>Marina Silva (25 a 34 Anos)</h5>
+					<br>
+				</div>
+				<!--<div class="col-lg-4">
 					<canvas id="javascript" height="130" width="130"></canvas>
 					<br>
 					<h4>Javascript</h4>
@@ -182,12 +187,12 @@
 							];
 							var myDoughnut = new Chart(document.getElementById("wordpress").getContext("2d")).Doughnut(doughnutData);
 					</script>
-				</div>
+				</div>-->
 			
 			</div>	
 		</div><!-- /container -->
 	</div><!-- /dg -->
-	
+	<!--
 	<section id="portfolio" name="portfolio"></section>
 	<div id="portfoliowrap">
 		<div class="container">
@@ -205,10 +210,11 @@
 					<a href="item3"><img src="{{url_for('static',filename='assets/img/work3.png')}}"></a>
 				</div>				
 			</div>	
-		</div><!-- /container -->
+		</div><!-- /container --
 	</div><!-- /portfoliowrap -->
 	
 	<!-- ========== WHITE SECTION ========== -->
+	<!--	
 	<div id="w">
 		<div class="container">
 			<div class="row">
@@ -217,7 +223,7 @@
 				</h3>
 				</div>
 			</div>
-		</div><!-- /container -->
+		</div><!-- /container --
 	</div><!-- /w -->
 	
 	<!-- ========== ABOUT - GREY SECTION ========== -->
@@ -225,64 +231,108 @@
 	<div id="g">
 		<div class="container">
 			<div class="row">
-				<h3>ABOUT US</h3>
+				<h3>EQUIPE</h3>
 				<br>
 				<br>
 				<div class="col-lg-2"></div>
 				<div class="col-lg-8">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lectus elit, tincidunt nec turpis sed, accumsan iaculis ipsum. Nulla at augue auctor, tristique erat in, ultricies nunc. Mauris eget metus leo. Ut in mi lacinia, mattis nisl non, ultrices risus. Vestibulum aliquet aliquam ipsum ut ullamcorper. Pellentesque fringilla, massa vel rutrum consequat, nulla velit fermentum dolor, sed scelerisque.</p>
+				<p>Essa é a equipe responsável por esse incrível trabalho</p>
 				<br>
 				<br>
+			</div>
+			<div class="col-lg-2"></div>
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="{{url_for('static',filename='assets/img/yago.jpg')}}" height="90" width="90">
+					<h4>Yago Carvalho</h4>
+					<h5><i>Engenharia de Computação e Informação</i></h5>
+					<p>
+						<a href="https://www.github.com/yagoocarvalho"><i class="icon-github"></i></a>
+						<a href="https://www.twitter.com/yagoocarvalho"><i class="icon-twitter"></i></a>
+						<a href="mailto:yago.meira@poli.ufrj.br"><i class="icon-envelope"></i></a>
+						<a href="https://www.linkedin.com/in/yagocarvalho"><i class="icon-linkedin"></i></a>
+
+					</p>
 				</div>
-				<div class="col-lg-2"></div>
+				</a>
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="{{url_for('static',filename='assets/img/damasc.jpg')}}" height="90" width="90">
+					<h4>Rafael Damasceno</h4>
+					<h5><i>Engenharia de Computação e Informação</i></h5>
+					<p>
+						<a href="https://www.facebook.com/raafaad"><i class="icon-facebook"></i></a>
+						<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-envelope"></i></a>
+
+					</p>
+				</div>
+
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="{{url_for('static',filename='assets/img/delrei.jpg')}}" height="90" width="90">
+					<h4>Pedro Del Rei</h4>
+					<h5><i>Engenharia Eletrônica e de Computação</i></h5>
+					<p>
+						<a href="https://www.facebook.com/homem.lindo.7"><i class="icon-facebook"></i></a>
+						<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-envelope"></i></a>
+
+					</p>
+				</div>
+
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="{{url_for('static',filename='assets/img/felipe.jpg')}}" height="90" width="90">
+					<h4>Felipe Assis</h4>
+					<h5><i>Engenharia de Computação e Informação</i></h5>
+					<p>
+						<a href="https://www.facebook.com/felipe.assis.710"><i class="icon-facebook"></i></a>
+						<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-envelope"></i></a>
+
+					</p>
+				</div>
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="{{url_for('static',filename='assets/img/jorge.jpg')}}" height="90" width="90">
+					<h4>Jorge Corral</h4>
+					<h5><i>Engenharia de Computação e Informação</i></h5>
+					<p>
+						<a href="https://br.linkedin.com/in/jorge-corral-611b07100"><i class="icon-linkedin"></i></a>
+						<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-envelope"></i></a>
+
+					</p>
+				</div>
+				</a>
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="{{url_for('static',filename='assets/img/lucas.jpg')}}" height="90" width="90">
+					<h4>Lucas Oliveira</h4>
+					<h5><i>Engenharia de Computação e Informação</i></h5>
+					<p>
+						<a href="https://www.facebook.com/lucas.barcellos.oliveira"><i class="icon-facebook"></i></a>
+						<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-envelope"></i></a>
+
+					</p>
+				</div>
+
 				<div class="col-lg-3 team">
 					<img class="img-circle" src="{{url_for('static',filename='assets/img/team01.jpg')}}" height="90" width="90">
-					<h4>Liz Stewart</h4>
-					<h5><i>Product Manager</i></h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					<h4>Rodrigo Jesus</h4>
+					<h5><i>Engenharia de Computação e Informação</i></h5>
 					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-						<a href="index.html#"><i class="icon-twitter"></i></a>
-						<a href="index.html#"><i class="icon-envelope"></i></a>
-
-					</p>
-				</div>
-
-				<div class="col-lg-3 team">
-					<img class="img-circle" src="{{url_for('static',filename='assets/img/team02.jpg')}}" height="90" width="90">
-					<h4>Brad Casey</h4>
-					<h5><i>Front-end Developer</i></h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-						<a href="index.html#"><i class="icon-twitter"></i></a>
-						<a href="index.html#"><i class="icon-envelope"></i></a>
-
-					</p>
-				</div>
-
-				<div class="col-lg-3 team">
-					<img class="img-circle" src="{{url_for('static',filename='assets/img/team03.jpg')}}" height="90" width="90">
-					<h4>Pamela Chow</h4>
-					<h5><i>Web Designer</i></h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-						<a href="index.html#"><i class="icon-twitter"></i></a>
-						<a href="index.html#"><i class="icon-envelope"></i></a>
+						<a href="#"><i class="icon-facebook"></i></a>
+						<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-envelope"></i></a>
 
 					</p>
 				</div>
 
 				<div class="col-lg-3 team">
 					<img class="img-circle" src="{{url_for('static',filename='assets/img/team04.jpg')}}" height="90" width="90">
-					<h4>Tim Gates</h4>
-					<h5><i>Back-end Guru</i></h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					<h4>Alexandre Paiva</h4>
+					<h5><i>Engenharia de Computação e Informação</i></h5>
 					<p>
-						<a href="index.html#"><i class="icon-facebook"></i></a>
-						<a href="index.html#"><i class="icon-twitter"></i></a>
-						<a href="index.html#"><i class="icon-envelope"></i></a>
+						<a href="#"><i class="icon-facebook"></i></a>
+						<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-envelope"></i></a>
 
 					</p>
 				</div>
@@ -291,7 +341,7 @@
 	</div><!-- /g -->
 	
 	<!-- ========== FOOTER SECTION ========== -->
-	<section id="contact" name="contact"></section>
+	<!--<section id="contact" name="contact"></section>
 	<div id="f">
 		<div class="container">
 			<div class="row">
@@ -312,15 +362,15 @@
 					<div class="col-lg-4">
 						<h3><b>We Are Social</b></h3>
 						<p>
-							<a href="index.html#"><i class="icon-facebook"></i></a>
-							<a href="index.html#"><i class="icon-twitter"></i></a>
-							<a href="index.html#"><i class="icon-envelope"></i></a>
+							<a href="#"><i class="icon-facebook"></i></a>
+							<a href="#"><i class="icon-twitter"></i></a>
+							<a href="#"><i class="icon-envelope"></i></a>
 						</p>
 						<br>
 					</div>
 				</div>
 			</div>
-		</div><!-- /container -->
+		</div><!-- /container --
 	</div><!-- /f -->
 	
 	<div id="c">
