@@ -1,6 +1,9 @@
+import org.apache.spark.mllib.stat.Statistics
+import org.apache.spark.mllib.linalg._
+
 // CONTAGEM DOS VOTOS
 // ==================
-val votos = sc.textFile("file:/home/geonumerica/Desktop/bweb/*.txt").filter(e => e.length > 0).map(e => e.split("\";\""))
+val votos = sc.textFile("file:/Users/rodrigoj42/Desktop/bweb/*.txt").filter(e => e.length > 0).map(e => e.split("\";\""))
 
 //  Legenda Boletim Web
 //  0: data
@@ -35,18 +38,21 @@ val votos = sc.textFile("file:/home/geonumerica/Desktop/bweb/*.txt").filter(e =>
 // 29: cod flashcard
 // 30: cargo pergunta secao
 
+// numero de votos que um candidato teve em dada seção (zona.seção)
 val votosPresidente = votos.filter(e => e(6) == "PRESIDENTE").map(e => ((e(7) + "." + e(8), e(22)), e(23).toInt)).reduceByKey((a,b) => a+b)
 val votosPresidenteMapeada = votosPresidente.map(e => (e._1._1,(e._1._2, e._2)))
-  
+
+// total do número de votos por seção (somando os candidatos)
 val numVotosPorSecao = votosPresidente.map(e => (e._1._1, e._2)).reduceByKey((a,b) => a+b)
 
-val votosPorcentagem = votosPresidenteMapeada.join(numVotosPorSecao).map(e => (e._1, e._2._1._1, e._2._1._2.toFloat*100/e._2._2))
+// votos por candidato/total de votos
+val votosPorcentagem = votosPresidenteMapeada.join(numVotosPorSecao).map(e => (e._1, e._2._1._1, e._2._1._2.toDouble*100/e._2._2))
 
 
 
 // PERFIL DOS ELEITORES   
 // ====================
-val eleitores = sc.textFile("file:/home/geonumerica/Desktop/perfil_eleitor/*.txt").filter(e => e.length > 0).map(e => e.split("\";\"")) 
+val eleitores = sc.textFile("file:/Users/rodrigoj42/Desktop/perfil_eleitor/*.txt").filter(e => e.length > 0).map(e => e.split("\";\"")) 
 
 //  Legenda Perfil Eleitorado
 //  0: data
@@ -70,55 +76,78 @@ val eleitores = sc.textFile("file:/home/geonumerica/Desktop/perfil_eleitor/*.txt
 // eleitores cadastrados em cada secao (diferente de numero de votos por secao)
 val eleitoresSecao = eleitores.map(e => (e(6) + "." + e(7), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 
-// possibilidade 1 => 4 rdds, 1 para cada indicador, depois so fazer filter, mas combinar seria mais complicado eu acho
+// identificadores presentes no arquivo de perfil de eleitores
 val estadoCivil  = eleitores.map(e => ((e(6) + "." + e(7), e(9) ), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 val faixaEtaria  = eleitores.map(e => ((e(6) + "." + e(7), e(11)), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 val escolaridade = eleitores.map(e => ((e(6) + "." + e(7), e(13)), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 val sexo         = eleitores.map(e => ((e(6) + "." + e(7), e(15)), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 
+// COMBINAÇÕES
+// ===========
+
+// combinando indicador com total de eleitores na seção
 val estadoCivilCombinado  =  estadoCivil.map(e => (e._1._1, (e._1._2, e._2))).join(eleitoresSecao)
-val faixaEtariaCombinada  =  faixaEtaria.map(e => (e._1._1, (e._1._2, e._2))).join(eleitoresSecao)
-val escolaridadeCombinada = escolaridade.map(e => (e._1._1, (e._1._2, e._2))).join(eleitoresSecao)
+val faixaEtariaCombinado  =  faixaEtaria.map(e => (e._1._1, (e._1._2, e._2))).join(eleitoresSecao)
+val escolaridadeCombinado = escolaridade.map(e => (e._1._1, (e._1._2, e._2))).join(eleitoresSecao)
 val sexoCombinado         =         sexo.map(e => (e._1._1, (e._1._2, e._2))).join(eleitoresSecao)
 
-val estadoCivilPorcentado  =  estadoCivilCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toFloat*100/e._2._2)))
-val faixaEtariaPorcentada  =  faixaEtariaCombinada.map(e => (e._1, (e._2._1._1, e._2._1._2.toFloat*100/e._2._2)))
-val escolaridadePorcentada = escolaridadeCombinada.map(e => (e._1, (e._2._1._1, e._2._1._2.toFloat*100/e._2._2)))
-val sexoPorcentado         =         sexoCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toFloat*100/e._2._2)))
-
-// possibilidade 2 => 1 rdd geral, depois so fazer filter + reduce, talvez mais facil pra combinar
-val geral = eleitores.map(e => (e(6) + "." + e(7),(e(9), e(11), e(13), e(15), e(16).dropRight(1).toInt)))
-val homensPorSecao = geral.map(e => ((e._1, e._2._4),e._2._5)).filter(e => e._2._1 == "MASCULINO").reduceByKey((a,b) => a + b)
+// transformando números absolutos em relativos
+val estadoCivilPorcentado  =  estadoCivilCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toDouble*100/e._2._2)))
+val faixaEtariaPorcentado  =  faixaEtariaCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toDouble*100/e._2._2)))
+val escolaridadePorcentado = escolaridadeCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toDouble*100/e._2._2)))
+val sexoPorcentado         =         sexoCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toDouble*100/e._2._2)))
 
 
-//=====> novo begin
+// ANÁLISE ESTATÍSTICA
+// ===================
 
+// [Outliers]
+
+// candidato mais votado na seção
+// (seria bom normalizar isso aqui)
 val votosMax = votosPorcentagem.map(e => (e._1, (e._2, e._3))).reduceByKey((a, b) => (if (a._2 > b._2) a else b))
 
+// tipo de identificador mais comum em cada seção (se tem mais homens que mulheres, p.e.)
 val estadoCivilMax  =  estadoCivilPorcentado.reduceByKey((a, b) => (if (a._2 > b._2) a else b))
-val faixaEtariaMax  =  faixaEtariaPorcentada.reduceByKey((a, b) => (if (a._2 > b._2) a else b))
-val escolaridadeMax = escolaridadePorcentada.reduceByKey((a, b) => (if (a._2 > b._2) a else b))
-val sexoMax 	    =         sexoPorcentado.reduceByKey((a, b) => (if (a._2 > b._2) a else b))
+val faixaEtariaMax  =  faixaEtariaPorcentado.reduceByKey((a, b) => (if (a._2 > b._2) a else b))
+val escolaridadeMax = escolaridadePorcentado.reduceByKey((a, b) => (if (a._2 > b._2) a else b))
+val sexoMax         =         sexoPorcentado.reduceByKey((a, b) => (if (a._2 > b._2) a else b))
 
+// combinação de candidato mais votado com indicador mais comum 
 val votosEstadoCivil  =  votosMax.join(estadoCivilMax).sortBy(e => e._2._2._2, false)
 val votosFaixaEtaria  =  votosMax.join(faixaEtariaMax).sortBy(e => e._2._2._2, false)
 val votosEscolaridade = votosMax.join(escolaridadeMax).sortBy(e => e._2._2._2, false)
 val votosSexo         =         votosMax.join(sexoMax).sortBy(e => e._2._2._2, false)
 
-//=====> novo end
+// [Correlações]
 
+// % de cada candidato combinada com distribuição demográfica (ambos por seção)
+val estadoCivilRelacionado  = votosPorcentagem.map(e => (e._1, (e._2,e._3))).join(estadoCivilPorcentado)
+val faixaEtariaRelacionado  = votosPorcentagem.map(e => (e._1, (e._2,e._3))).join(faixaEtariaPorcentado)
+val escolaridadeRelacionado = votosPorcentagem.map(e => (e._1, (e._2,e._3))).join(escolaridadePorcentado)
+val sexoRelacionado         = votosPorcentagem.map(e => (e._1, (e._2,e._3))).join(sexoPorcentado)
 
+// filtragens para Marina 
+val estadoCivilRelacionadoMarina  =  estadoCivilRelacionado.filter(e => e._2._1._1 == "MARINA SILVA")
+val faixaEtariaRelacionadoMarina  =  faixaEtariaRelacionado.filter(e => e._2._1._1 == "MARINA SILVA")
+val escolaridadeRelacionadoMarina = escolaridadeRelacionado.filter(e => e._2._1._1 == "MARINA SILVA")
+val sexoRelacionadoMarina         =         sexoRelacionado.filter(e => e._2._1._1 == "MARINA SILVA")
 
-// TESTES
-// ======
-val teste = votosPorcentagem.filter(e => (e._1 == "10.150"))
-val teste = votosPresidenteMapeada.join(eleitoresSecao).map(e => (e._1, e._2._1._2.toFloat*100/e._2._2)).reduceByKey((a,b) => a+b)
+// filtrando votos para Marina e identificador de % de homens na seção
+val votosMarinaMascSorted = sexoRelacionado.filter(e => e._2._1._1 == "MARINA SILVA" && e._2._2._1 == "MASCULINO").sortBy(e => e._1)
+// obs: RDDs neste formato serão usadas para gráfico "estilo Brexit" 
 
+// separando em RDDs ordenados para aplicar a correlação
+val votosMarinaSortedPercent = votosMarinaMascSorted.map(e => e._2._1._2)
+val votosMascSortedPercent = votosMarinaMascSorted.map(e => e._2._2._2)
 
+// correlação entre votos da Marina e % de homens na seção
+val correlacaoMarinaMasc: Double = Statistics.corr(votosMarinaSortedPercent, votosMascSortedPercent, "pearson")
 
-// ANALISE ESTATISTICA
+// TESTES DE VALIDAÇÃO
 // ===================
-
+val teste = votosPorcentagem.filter(e => (e._1 == "10.150"))
+val teste = votosPresidenteMapeada.join(eleitoresSecao).map(e => (e._1, e._2._1._2.toDouble*100/e._2._2)).reduceByKey((a,b) => a+b)
 
 
 // ANALISE HISTORICA
