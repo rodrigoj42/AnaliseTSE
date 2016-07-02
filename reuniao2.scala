@@ -136,24 +136,24 @@ val escolaridadeRelacionadoMarina = escolaridadeRelacionado.filter(e => e._2._1.
 val sexoRelacionadoMarina         =         sexoRelacionado.filter(e => e._2._1._1 == "MARINA SILVA")
 
 // filtrando votos para Marina e identificador de % de homens na seção
-val votosMarinaMascSorted = sexoRelacionado.filter(e => e._2._1._1 == "MARINA SILVA" && e._2._2._1 == "MASCULINO").sortBy(e => e._1)
+val votosMarinaFemSorted = sexoRelacionado.filter(e => e._2._1._1 == "MARINA SILVA" && e._2._2._1 == "FEMININO").sortBy(e => e._1)
 // obs: RDDs neste formato serão usadas para gráfico "estilo Brexit" 
 
 // separando em RDDs ordenados para aplicar a correlação
-val votosMarinaSortedPercent = votosMarinaMascSorted.map(e => e._2._1._2)
-val votosMascSortedPercent = votosMarinaMascSorted.map(e => e._2._2._2)
+val votosMarinaSortedPercent = votosMarinaFemSorted.map(e => e._2._1._2)
+val votosFemSortedPercent = votosMarinaFemSorted.map(e => e._2._2._2)
 
-// correlação entre votos da Marina e % de homens na seção
-val correlacaoMarinaMasc: Double = Statistics.corr(votosMarinaSortedPercent, votosMascSortedPercent, "pearson")
+// correlação entre votos da Marina e % de mulheres na seção
+val correlacaoMarinaMasc: Double = Statistics.corr(votosMarinaSortedPercent, votosFemSortedPercent, "pearson")
 
-
-// filtrando votos para Marina e identificador de % de homens na seção
+// filtrando votos para Marina
 val votosMarinaFESorted = faixaEtariaRelacionado.filter(e => e._2._1._1 == "MARINA SILVA").sortBy(e => e._1)
 // separando em RDDs ordenados para aplicar a correlação
 val votosMarinaSortedPercent = votosMarinaFESorted.map(e => e._2._1._2)
 val votosFESortedPercent = votosMarinaFESorted.map(e => e._2._2._2)
 // correlação entre votos da Marina e % de homens na seção
 val correlacaoMarinaFE: Double = Statistics.corr(votosMarinaSortedPercent, votosFESortedPercent, "pearson")
+
 
 // TIPO DE SEÇÃO EM QUE O CANDIDATO MELHOR PERFORMA
 // ================================================
@@ -175,6 +175,13 @@ val marinaPorPerfil = qntdVotosPorPerfil.filter(e=> (e._1._1 =="MARINA SILVA")).
 val dilmaPorPerfil = qntdVotosPorPerfil.filter(e=> (e._1._1 =="DILMA")).sortBy(e=> e._2,false)
 
 
+// Exportando CSV
+val marinaCSV = votosMarinaFESorted.map(e => e._2._1._1+";"+e._2._1._2+";"+e._2._2._1+";"+e._2._2._2)
+marinaCSV.repartition(1).saveAsTextFile("./export/marina") 
+
+val marinaFemCSV = votosMarinaFemSorted.map(e => e._2._1._1+";"+e._2._1._2+";"+e._2._2._1+";"+e._2._2._2)
+marinaFemCSV.repartition(1).saveAsTextFile("./export/marina/reuniao2")
+
 // TESTES DE VALIDAÇÃO
 // ===================
 
@@ -182,11 +189,11 @@ println()
 println("Testes de Validação")
 println()
 println()
-println("% votos para Marina Silva em dada seção e % de homens")
-votosMarinaMascSorted.take(5).foreach(println)
+println("% votos para Marina Silva em dada seção e % de mulheres")
+votosMarinaFemSorted.take(5).foreach(println)
 println()
-println("Correlação entre % de votos de Marina e % de homens usando MLlib")
-println(correlacaoMarinaMasc)
+println("Correlação entre % de votos de Luciana e % de jovens usando MLlib")
+println(correlacaoLucianaFE)
 println()
 println()
 println("% de votos de Marina e Distribuição Demográfica por Faixa Etária")
@@ -196,13 +203,6 @@ println()
 println("Tipo de seção em que Marina melhor performou")
 marinaPorPerfil.take(10).foreach(println)
 
-
-// Exportando CSV
-val marinaCSV = votosMarinaFESorted.map(e => e._2._1._1+";"+e._2._1._2+";"+e._2._2._1+";"+e._2._2._2)
-marinaCSV.repartition(1).saveAsTextFile("./export/marina") 
-
-val dilmaCSV = votosMarinaFESorted.map(e => e._2._1._1+";"+e._2._1._2+";"+e._2._2._1+";"+e._2._2._2)
-dilmaCSV.repartition(1).saveAsTextFile("./export/dilma")
 
 // ANALISE HISTORICA
 // =================
