@@ -1,6 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
+	<script src="static/assets/js/ammap.js" type="text/javascript"></script>
+	<script src="static/assets/js/ammap_amcharts_extension.js" type="text/javascript"></script>
+	<script src="static/assets/js/brazilLow.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="static/assets/css/ammap.css" type="text/css" media="all" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -32,12 +37,12 @@
     <![endif]-->
   </head>
 
-  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+
 		
 	<!-- Menu -->
 	<nav class="menu" id="theMenu">
 		<div class="menu-wrap">
-			<h1 class="logo"><a href="home">Análise TSE</a></h1>
+			<h1 class="logo"><a href="home">	</a></h1>
 			<i class="icon-remove menu-close"></i>
 			<a href="#home" class="smoothScroll">Início</a>
 			<a href="#w" class="smoothScroll">Nosso trabalho</a>
@@ -56,8 +61,8 @@
 	<div id="headerwrap">
 		<div class="container">
 			<br>
-			<h1>Análise TSE</h1>
-			<h2>Trabalho de Big Data - UFRJ</h2>
+			<h1>Análise Dados</h1>
+			<h2>Tribunal Superior Eleitoral</h2>
 			<div class="row">
 				<br>
 				<br>
@@ -114,6 +119,18 @@
 	</div><!-- /g -->
 	
 	<!-- ========== CHARTS - DARK GREY SECTION ========== -->
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+  <div id="mapdiv1" style="width: 600px; height: 70px; margin:auto;">
+		<h3>Número de votos por Estado (Marina Silva)</h3>
+  </div>
+
+  <div id="mapdiv" style="width: 600px; height: 700px; margin:auto;">
+		<h3>Número de votos da candidata Marina Silva por Estado</h3>
+		<br>
+		<br>
+		<script src="static/assets/js/worldmap.js" type="text/javascript"></script>
+		
+  </div>
 	<section id="graphs" name="graphs"></section>
 	<div id="dg">
 		<div class="container">
@@ -385,6 +402,11 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+	<script src="{{url_for('static',filename='assets/css/ammap.js')}}"></script>
+	<script src="{{url_for('static',filename='assets/js/brazilLow.js')}}"></script>
+	<script src="{{url_for('static',filename='assets/js/ammap.js')}}"></script>
+	<script src="{{url_for('static',filename='assets/js/ammap_amcharts_extension.js')}}"></script>
+	<script src="{{url_for('static',filename='assets/js/worldmap.js')}}"></script>
 	<script src="{{url_for('static',filename='assets/js/classie.js')}}"></script>
     <script src="{{url_for('static',filename='assets/js/bootstrap.min.js')}}"></script>
     <script src="{{url_for('static',filename='assets/js/smoothscroll.js')}}"></script>
