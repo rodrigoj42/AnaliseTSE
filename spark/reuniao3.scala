@@ -3,12 +3,15 @@ import org.apache.spark.mllib.linalg._
 
 // OBS: MARCADOS COM '*' PRECISAM DE INTERVENÇÃO 
 
+// ==================
+// INÍCIO DO MÓDULO 1
+// ==================
 
 // #1 SELECIONAR OS ARQUIVOS NECESSÁRIOS *
 // =====================================
 
 // CONTAGEM DOS VOTOS
-val votos = sc.textFile("file:/Users/rodrigoj42/Desktop/bweb/*.txt").filter(e => e.length > 0).map(e => e.split("\";\""))
+val votos = sc.textFile("file:/Users/damasceno/Desktop/bweb/*.txt").filter(e => e.length > 0).map(e => e.split("\";\""))
 
 //  Legenda Boletim Web
 //  0: data
@@ -44,7 +47,7 @@ val votos = sc.textFile("file:/Users/rodrigoj42/Desktop/bweb/*.txt").filter(e =>
 // 30: cargo pergunta secao
 
 // PERFIL DOS ELEITORES
-val eleitores = sc.textFile("file:/Users/rodrigoj42/Desktop/perfil_eleitor/*.txt").filter(e => e.length > 0).map(e => e.split("\";\"")) 
+val eleitores = sc.textFile("file:/Users/damasceno/Desktop/perfil_eleitor/*.txt").filter(e => e.length > 0).map(e => e.split("\";\"")) 
 
 //  Legenda Perfil Eleitorado
 //  0: data
@@ -65,10 +68,20 @@ val eleitores = sc.textFile("file:/Users/rodrigoj42/Desktop/perfil_eleitor/*.txt
 // 15: desc sexo 
 // 16: qtd eleitores no perfil
 
-
 // #2 LEVANTAR OS CARGOS DISPONÍVEIS
 // =================================
 val cargosDisponiveis = votos.map(e => e(6)).distinct()
+
+//export csv
+
+// ===============
+// FIM DO MÓDULO 1
+// ===============
+
+
+// ==================
+// INÍCIO DO MÓDULO 2
+// ==================
 
 // #3 SELECIONAR O CARGO SOLICITADO *
 // ================================
@@ -83,12 +96,21 @@ val numVotosPorSecao = votosCandidato.map(e => (e._1._1, e._2)).reduceByKey((a,b
 // votos por candidato/total de votos
 val votosPorcentagem = votosCandidatoMapeada.join(numVotosPorSecao).map(e => (e._1, e._2._1._1, e._2._1._2.toDouble*100/e._2._2))
 
-
 // #4 LEVANTAR CANDIDATOS DISPONÍVEIS *
 // ==================================
 
 val candidatosDisponiveis = votos.filter(e => e(6) == "PRESIDENTE").map(e => e(22)).distinct()
 
+//export csv
+
+// ===============
+// FIM DO MÓDULO 2
+// ===============
+
+
+// ==================
+// INÍCIO DO MÓDULO 3
+// ==================
 
 // #5 LEVANTAR DADOS DO ELEITORADO
 // ===============================
@@ -101,7 +123,6 @@ val estadoCivil  = eleitores.map(e => ((e(6) + "." + e(7), e(9) ), e(16).dropRig
 val faixaEtaria  = eleitores.map(e => ((e(6) + "." + e(7), e(11)), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 val escolaridade = eleitores.map(e => ((e(6) + "." + e(7), e(13)), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 val sexo         = eleitores.map(e => ((e(6) + "." + e(7), e(15)), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
-
 
 // #6 LEVANTAR AS COMBINAÇÕES
 // ==========================
@@ -117,7 +138,6 @@ val estadoCivilPorcentado  =  estadoCivilCombinado.map(e => (e._1, (e._2._1._1, 
 val faixaEtariaPorcentado  =  faixaEtariaCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toDouble*100/e._2._2)))
 val escolaridadePorcentado = escolaridadeCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toDouble*100/e._2._2)))
 val sexoPorcentado         =         sexoCombinado.map(e => (e._1, (e._2._1._1, e._2._1._2.toDouble*100/e._2._2)))
-
 
 // #7 ANÁLISE ESTATÍSTICA
 // ======================
@@ -143,7 +163,6 @@ val estadoCivilRelacionado  = votosPorcentagem.map(e => (e._1, (e._2,e._3))).joi
 val faixaEtariaRelacionado  = votosPorcentagem.map(e => (e._1, (e._2,e._3))).join(faixaEtariaPorcentado)
 val escolaridadeRelacionado = votosPorcentagem.map(e => (e._1, (e._2,e._3))).join(escolaridadePorcentado)
 val sexoRelacionado         = votosPorcentagem.map(e => (e._1, (e._2,e._3))).join(sexoPorcentado)
-
 
 // #8 CORRELAÇÕES *
 // ==============
@@ -173,6 +192,29 @@ val votosFESortedPercent = votosMarinaFESorted.map(e => e._2._2._2)
 // correlação entre votos da Marina e % de homens na seção
 val correlacaoMarinaFE: Double = Statistics.corr(votosMarinaSortedPercent, votosFESortedPercent, "pearson")
 
+// ===============
+// FIM DO MÓDULO 3
+// ===============
+
+
+// ==================
+// INÍCIO DO MÓDULO 4
+// ==================
+
+// DADOS INCONSISTENTES
+// ====================
+
+// copy & paste do arquivo antigo
+//val teste = votosCandidatoMapeada.join(eleitoresPorSecao).map(e => (e._1, e._2._1._2.toFloat*100/e._2._2)).reduceByKey((a,b) => a+b)
+
+// ===============
+// FIM DO MÓDULO 4
+// ===============
+
+
+// ==================
+// INÍCIO DO MÓDULO 5
+// ==================
 
 // #9 TIPO DE SEÇÃO EM QUE O CANDIDATO MELHOR PERFORMA *
 // ===================================================
@@ -193,6 +235,10 @@ val qntdVotosPorPerfil = maisVotadosPerfil.map(e=> ((e._2._1._1, e._2._2._1, e._
 val marinaPorPerfil = qntdVotosPorPerfil.filter(e=> (e._1._1 =="MARINA SILVA")).sortBy(e=> e._2,false)
 val dilmaPorPerfil = qntdVotosPorPerfil.filter(e=> (e._1._1 =="DILMA")).sortBy(e=> e._2,false)
 
+// ===============
+// FIM DO MÓDULO 5
+// ===============
+
 
 // Exportando CSV
 val marinaCSV = votosMarinaFESorted.map(e => e._2._1._1+";"+e._2._1._2+";"+e._2._2._1+";"+e._2._2._2)
@@ -212,7 +258,7 @@ println("% votos para Marina Silva em dada seção e % de mulheres")
 votosMarinaFemSorted.take(5).foreach(println)
 println()
 println("Correlação entre % de votos de Luciana e % de jovens usando MLlib")
-println(correlacaoLucianaFE)
+//println(correlacaoLucianaFE)
 println()
 println()
 println("% de votos de Marina e Distribuição Demográfica por Faixa Etária")
@@ -225,10 +271,3 @@ marinaPorPerfil.take(10).foreach(println)
 
 // ANALISE HISTORICA
 // =================
-
-
-// DADOS INCONSISTENTES
-// ====================
-
-// copy & paste do arquivo antigo
-val teste = votosCandidatoMapeada.join(eleitoresPorSecao).map(e => (e._1, e._2._1._2.toFloat*100/e._2._2)).reduceByKey((a,b) => a+b)
