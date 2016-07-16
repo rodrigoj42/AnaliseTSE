@@ -10,6 +10,8 @@ import org.apache.spark.mllib.linalg._
 // #1 SELECIONAR OS ARQUIVOS NECESSÁRIOS *
 // =====================================
 
+// Exemplo: modulo1 ano estado turno
+
 // CONTAGEM DOS VOTOS
 val votos = sc.textFile("file:/Users/damasceno/Desktop/bweb/*.txt").filter(e => e.length > 0).map(e => e.split("\";\""))
 
@@ -70,9 +72,10 @@ val eleitores = sc.textFile("file:/Users/damasceno/Desktop/perfil_eleitor/*.txt"
 
 // #2 LEVANTAR OS CARGOS DISPONÍVEIS
 // =================================
-val cargosDisponiveis = votos.map(e => e(6)).distinct()
 
+val cargosDisponiveis = votos.map(e => e(6)).distinct()
 //export csv
+cargosDisponiveis.repartition(1).saveAsTextFile("./export/cargosDisponiveis")
 
 // ===============
 // FIM DO MÓDULO 1
@@ -82,6 +85,8 @@ val cargosDisponiveis = votos.map(e => e(6)).distinct()
 // ==================
 // INÍCIO DO MÓDULO 2
 // ==================
+
+// Exemplo: modulo2 cargo
 
 // #3 SELECIONAR O CARGO SOLICITADO *
 // ================================
@@ -100,8 +105,8 @@ val votosPorcentagem = votosCandidatoMapeada.join(numVotosPorSecao).map(e => (e.
 // ==================================
 
 val candidatosDisponiveis = votos.filter(e => e(6) == "PRESIDENTE").map(e => e(22)).distinct()
-
 //export csv
+candidatosDisponiveis.repartition(1).saveAsTextFile("./export/candidatosDisponiveis")
 
 // ===============
 // FIM DO MÓDULO 2
@@ -111,6 +116,8 @@ val candidatosDisponiveis = votos.filter(e => e(6) == "PRESIDENTE").map(e => e(2
 // ==================
 // INÍCIO DO MÓDULO 3
 // ==================
+
+// Exemplo: modulo3 candidato indicador
 
 // #5 LEVANTAR DADOS DO ELEITORADO
 // ===============================
@@ -204,8 +211,14 @@ val correlacaoMarinaFE: Double = Statistics.corr(votosMarinaSortedPercent, votos
 // DADOS INCONSISTENTES
 // ====================
 
-// copy & paste do arquivo antigo
-//val teste = votosCandidatoMapeada.join(eleitoresPorSecao).map(e => (e._1, e._2._1._2.toFloat*100/e._2._2)).reduceByKey((a,b) => a+b)
+
+// total do número de votos por seção (somando os candidatos) ---> val numVotosPorSecao
+// eleitores cadastrados em cada secao (diferente de numero de votos por secao) ---> val eleitoresSecao
+
+val votosComparados = numVotosPorSecao.join(eleitoresSecao).map(e => (e._1, e._2._1, e._2._2, e._2._1.toFloat*100/e._2._2)).sortBy(e=> e._4,false)
+
+// formato: (zona.secao, numVotosPorSecao, eleitoresSecao, % de votos recebidos na seção)
+
 
 // ===============
 // FIM DO MÓDULO 4
