@@ -47,8 +47,8 @@
 			<a href="#home" class="smoothScroll">Início</a>
 			<a href="#w" class="smoothScroll">Nosso trabalho</a>
 			<a href="#mapdiv1" class="smoothScroll">Mapas</a>
-			<a href="#graphs" class="smoothScroll">Gráficos</a>
 			<a href="#about" class="smoothScroll">Equipe</a>
+			<!--<a href="#graphs" class="smoothScroll">Gráficos</a>-->
 		</div>
 		
 		<!-- Menu button -->
@@ -80,168 +80,41 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-				<h3>Esta é a página para visualização do trabalho do curso <bold>BIG DATA</bold> da <bold>Universidade Federal do Rio de Janeiro</bold>, que consiste em uma análise do eleitor médio Brasileiro de acordo com <Lista de filtros>. O framework utilizado <bold>- Apache Spark - </bold>possibilitou uma análise da grande quantidade de dados (Big Data) rápida e eficaz. As informações foram extraídas do site do Tribunal Superior Eleitoral. 
+				<h3>Esta é a página para visualização do trabalho do curso <bold>BIG DATA</bold> da <bold>Universidade Federal do Rio de Janeiro</bold>, que consiste em uma análise do eleitor médio Brasileiro de acordo com <Lista de filtros>. O framework utilizado <bold>- Apache Spark - </bold>possibilitou uma análise da grande quantidade de dados (Big Data) rápida e eficaz. As informações foram extraídas do site do <a href="http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais/">Tribunal Superior Eleitoral</a>. 
 				</h3>
 				</div>
 			</div>
 		</div><!-- /container -->
 	</div><!-- /w -->
 	
-	<!-- ========== SERVICES - GREY SECTION ========== -->
-	<!--<section id="graphs" name="graphs"></section>
-	<div id="g">
-		<div class="container">
-			<div class="row">
-				<h3>OUR SERVICES</h3>
-				<br>
-				<br>
-				<div class="col-lg-3">
-					<img src="{{url_for('static',filename='assets/img/s1.png')}}">
-					<h4>London</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-				</div>
-				<div class="col-lg-3">
-					<img src="{{url_for('static',filename='assets/img/s2.png')}}">
-					<h4>Berlin</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-				</div>
-				<div class="col-lg-3">
-					<img src="{{url_for('static',filename='assets/img/s3.png')}}">
-					<h4>Paris</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-				</div>
-				<div class="col-lg-3">
-					<img src="{{url_for('static',filename='assets/img/s4.png')}}">
-					<h4>Tokyo</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-				</div>
-			</div>
-		</div><!-- /container --
-	</div><!-- /g -->
 	
-	<!-- ========== CHARTS - DARK GREY SECTION ========== -->
-  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
-  <div id="mapdiv1" style="width: 600px; height: 70px; margin:auto;">
-		<h3>Número de votos por Estado (Marina Silva)</h3>
-  </div>
-  	<div id="mapdiv" style="width: 600px; height: 700px; margin:auto;">
-		<h3>Número de votos da candidata Marina Silva por Estado</h3>
-		<br>
-		<br>
-		<script src="static/assets/js/worldmap.js" type="text/javascript"></script>
-		
-  	</div>
-	<section id="graphs" name="graphs"></section>
-	<div id="dg">
-		<div class="container">
-			<div class="row">
-				<h3>GRÁFICOS</h3>
-				<br>
-				<br>
-				<div class="col-lg-2"></div>
-				<div class="col-lg-8">
-					<br>
-					<h4>Porcentagem de votos por Faixa Etária</h4>
-					<br>
-					<a href="{{url_for('static',filename='assets/img/marina_25_34.png')}}" data-toggle="popover" data-trigger="focus" data-content="{{url_for('static',filename='assets/img/icon_marina_25_34.png')}}"><img src="{{url_for('static',filename='assets/img/icon_marina_25_34.png')}}"></img></a>
-					<h5>Marina Silva (25 a 34 Anos)</h5>
-					<br>
-				</div>
-				<!--<div class="col-lg-4">
-					<canvas id="javascript" height="130" width="130"></canvas>
-					<br>
-					<h4>Javascript</h4>
-					<br>
-					<script>
-						var doughnutData = [
-								{
-									value: 70,
-									color:"#f85c37"
-								},
-								{
-									value : 30,
-									color : "#ecf0f1"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("javascript").getContext("2d")).Doughnut(doughnutData);
-					</script>
+    <body data-spy="scroll" data-offset="0" data-target="#theMenu">
 
-				</div>
-				<div class="col-lg-4">
-					<canvas id="bootstrap" height="130" width="130"></canvas>
-					<br>
-					<h4>Bootstrap</h4>
-					<br>
-					<script>
-						var doughnutData = [
-								{
-									value: 90,
-									color:"#f85c37"
-								},
-								{
-									value : 10,
-									color : "#ecf0f1"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("bootstrap").getContext("2d")).Doughnut(doughnutData);
-					</script>
-				</div>
-				<div class="col-lg-4">
-					<canvas id="wordpress" height="130" width="130"></canvas>
-					<br>
-					<h4>Wordpress</h4>
-					<br>
-					<script>
-						var doughnutData = [
-								{
-									value: 55,
-									color:"#f85c37"
-								},
-								{
-									value : 45,
-									color : "#ecf0f1"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("wordpress").getContext("2d")).Doughnut(doughnutData);
-					</script>
-				</div>-->
-			
-			</div>	
-		</div><!-- /container -->
-	</div><!-- /dg -->
-	<!--
-	<section id="portfolio" name="portfolio"></section>
-	<div id="portfoliowrap">
-		<div class="container">
-			<div class="row">
-				<h3>COOL WORKS</h3>
-				<br>
-				<br>
-				<div class="col-lg-4 port-space">
-					<a href="item1"><img src="{{url_for('static',filename='assets/img/work1.png')}}"></a>
-				</div>
-				<div class="col-lg-4 port-space">
-					<a href="item2"><img src="{{url_for('static',filename='assets/img/work2.png')}}"></a>
-				</div>
-				<div class="col-lg-4 port-space">
-					<a href="item3"><img src="{{url_for('static',filename='assets/img/work3.png')}}"></a>
-				</div>				
-			</div>	
-		</div><!-- /container --
-	</div><!-- /portfoliowrap -->
-	
-	<!-- ========== WHITE SECTION ========== -->
-	<!--	
-	<div id="w">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-				<h3>WE WORK HARD TO DELIVER A <bold>HIGH QUALITY SERVICE</bold>. OUR AIM IS YOUR COMPLETE <bold>SATISFACTION</bold>.
-				</h3>
-				</div>
-			</div>
-		</div><!-- /container --
-	</div><!-- /w -->
+
+    <div class='container'>
+
+    	{%if dropdown[0] and dropdown[1]%}
+    	<form id="args" action="showResults"><select>
+    		{{ dropdown[0] | safe }}
+    	</select>
+    	<select>
+    		{{ dropdown[1] | safe }}
+    	</select>
+    	</form>
+    	<button type="get" value="Calcular" form="args">Calcular</button>
+    	{%else%}
+    	{%endif%}
+    	<div id="mapdiv1" style="width: 600px; height: 70px; margin:auto;">
+			<h3>Número de votos por Estado (Marina Silva)</h3>
+    	</div>
+    	<div id="mapdiv" style="width: 600px; height: 700px; margin:auto;">
+			<h3>Número de votos da candidata Marina Silva por Estado</h3>
+			<br>
+			<br>
+			<script src="static/assets/js/worldmap.js" type="text/javascript"></script>
+		
+    	</div>
+    </div>
 	
 	<!-- ========== ABOUT - GREY SECTION ========== -->
 	<section id="about" name="about"></section>
@@ -277,7 +150,7 @@
 					<h5><i>Engenharia de Computação e Informação</i></h5>
 					<p>
 						<a href="https://www.facebook.com/raafaad"><i class="icon-facebook"></i></a>
-						<a href="#"><i class="icon-twitter"></i></a>
+						<!--<a href="#"><i class="icon-twitter"></i></a>-->
 						<a href="#"><i class="icon-envelope"></i></a>
 
 					</p>
@@ -289,7 +162,7 @@
 					<h5><i>Engenharia Eletrônica e de Computação</i></h5>
 					<p>
 						<a href="https://www.facebook.com/homem.lindo.7"><i class="icon-facebook"></i></a>
-						<a href="#"><i class="icon-twitter"></i></a>
+						<!--<a href="#"><i class="icon-twitter"></i></a>-->
 						<a href="#"><i class="icon-envelope"></i></a>
 
 					</p>
@@ -301,7 +174,7 @@
 					<h5><i>Engenharia de Computação e Informação</i></h5>
 					<p>
 						<a href="https://www.facebook.com/felipe.assis.710"><i class="icon-facebook"></i></a>
-						<a href="#"><i class="icon-twitter"></i></a>
+						<!--<a href="#"><i class="icon-twitter"></i></a>-->
 						<a href="#"><i class="icon-envelope"></i></a>
 
 					</p>
@@ -312,7 +185,7 @@
 					<h5><i>Engenharia de Computação e Informação</i></h5>
 					<p>
 						<a href="https://br.linkedin.com/in/jorge-corral-611b07100"><i class="icon-linkedin"></i></a>
-						<a href="#"><i class="icon-twitter"></i></a>
+						<!--<a href="#"><i class="icon-twitter"></i></a>-->
 						<a href="#"><i class="icon-envelope"></i></a>
 
 					</p>
@@ -324,7 +197,7 @@
 					<h5><i>Engenharia de Computação e Informação</i></h5>
 					<p>
 						<a href="https://www.facebook.com/lucas.barcellos.oliveira"><i class="icon-facebook"></i></a>
-						<a href="#"><i class="icon-twitter"></i></a>
+						<!--<a href="#"><i class="icon-twitter"></i></a>-->
 						<a href="#"><i class="icon-envelope"></i></a>
 
 					</p>
@@ -335,9 +208,10 @@
 					<h4>Rodrigo Jesus</h4>
 					<h5><i>Engenharia de Computação e Informação</i></h5>
 					<p>
+						<a href="https://github.com/rodrigoj42/"><i class="icon-github"></i></a>
 						<a href="https://www.facebook.com/rodrigoj42"><i class="icon-facebook"></i></a>
-						<a href="#"><i class="icon-twitter"></i></a>
-						<a href="#"><i class="icon-envelope"></i></a>
+						<!--<a href="#"><i class="icon-twitter"></i></a>-->
+						<a href="mailto:r@ufrj.br"><i class="icon-envelope"></i></a>
 
 					</p>
 				</div>
@@ -348,47 +222,14 @@
 					<h5><i>Engenharia de Computação e Informação</i></h5>
 					<p>
 						<a href="https://www.facebook.com/alexandre.depaivasilva.9"><i class="icon-facebook"></i></a>
-						<a href="#"><i class="icon-twitter"></i></a>
-						<a href="#"><i class="icon-envelope"></i></a>
+						<!--<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-envelope"></i></a>-->
 
 					</p>
 				</div>
 			</div>
 		</div><!-- /container -->
 	</div><!-- /g -->
-	
-	<!-- ========== FOOTER SECTION ========== -->
-	<!--<section id="contact" name="contact"></section>
-	<div id="f">
-		<div class="container">
-			<div class="row">
-					<h3><b>CONTACT US</b></h3>
-					<br>
-					<div class="col-lg-4">
-						<h3><b>Send Us A Message:</b></h3>
-						<h3>onassis@blacktie.co</h3>
-						<br>
-					</div>
-					
-					<div class="col-lg-4">	
-						<h3><b>Call Us:</b></h3>
-						<h3>+55 3984-4389</h3>
-						<br>
-					</div>
-					
-					<div class="col-lg-4">
-						<h3><b>We Are Social</b></h3>
-						<p>
-							<a href="#"><i class="icon-facebook"></i></a>
-							<a href="#"><i class="icon-twitter"></i></a>
-							<a href="#"><i class="icon-envelope"></i></a>
-						</p>
-						<br>
-					</div>
-				</div>
-			</div>
-		</div><!-- /container --
-	</div><!-- /f -->
 	
 	<div id="c">
 		<div class="container">
