@@ -80,12 +80,13 @@ object analiseIndicador {
 	val votosValorSortedPercent = votosCandidatoValorSorted.map(e => e._2._2._2)
 
 	// correlação entre votos da Marina e % de mulheres na seção
-	val correlacaoCandidatoValor: Double = Statistics.corr(votosCandidatoSortedPercent, votosValorSortedPercent, "pearson")
+	val correlacaoCandidatoValor = sc.parallelize(Array(Statistics.corr(votosCandidatoSortedPercent, votosValorSortedPercent, "pearson").toString))
 
 	// Exportando CSV
 	val candidatoCSV = votosCandidatoValorSorted.map(e => e._2._1._1+";"+e._2._1._2+";"+e._2._2._1+";"+e._2._2._2)
-	val caminhoCSV = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/analiseIndicador_" + args(0) + "_" + args(1) + "_" + args(2) + "_" + args(3) + "_" + args(4) + "_" + args(5) + "_" + args(6)
-	candidatoCSV.repartition(1).saveAsTextFile(caminhoCSV)
+	val caminho = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/analiseIndicador_" + args(0) + "_" + args(1) + "_" + args(2) + "_" + args(3) + "_" + args(4) + "_" + args(5) + "_" + args(6)
+	candidatoCSV.repartition(1).saveAsTextFile(caminho)
+	correlacaoCandidatoValor.repartition(1).saveAsTextFile(caminho + "_correlacao")
 
   }
 }

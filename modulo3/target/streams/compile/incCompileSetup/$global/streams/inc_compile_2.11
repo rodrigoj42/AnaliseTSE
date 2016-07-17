@@ -1,0 +1,263 @@
+format version: 5
+output mode:
+1 items
+0 -> single
+output directories:
+1 items
+output dir -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes
+compile options:
+0 items
+javac options:
+0 items
+compiler version:
+1 items
+0 -> 2.11.8
+compile order:
+1 items
+0 -> Mixed
+name hashing:
+1 items
+0 -> true
+products:
+29 items
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$1.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$10.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$11.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$12.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$13.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$14.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$15.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$16.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$17.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$18.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$19.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$2.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$20.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$21.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$22.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$23.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$24.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$25.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$26.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$27.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$3.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$4.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$5.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$6.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$7.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$8.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$9.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$.class
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador.class
+binary dependencies:
+4 items
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/.ivy2/cache/org.apache.spark/spark-core_2.11/jars/spark-core_2.11-1.6.2.jar
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/.ivy2/cache/org.apache.spark/spark-mllib_2.11/jars/spark-mllib_2.11-1.6.2.jar
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /Users/Damasceno/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.8.jar
+direct source dependencies:
+0 items
+direct external dependencies:
+0 items
+public inherited source dependencies:
+0 items
+public inherited external dependencies:
+0 items
+member reference internal dependencies:
+0 items
+member reference external dependencies:
+0 items
+inheritance internal dependencies:
+0 items
+inheritance external dependencies:
+0 items
+class names:
+29 items
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$1
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$10
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$11
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$12
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$13
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$14
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$15
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$16
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$17
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$18
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$19
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$2
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$20
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$21
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$22
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$23
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$24
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$25
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$26
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$27
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$3
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$4
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$5
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$6
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$7
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$8
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador$$anonfun$9
+used names:
+98 items
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> !=
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> &&
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> *
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> +
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> /
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> <init>
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> ==
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> >
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> AnyRef
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> Array
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> ClassTag
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> Double
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> Int
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> Ordering
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> Predef
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> RDD
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> ScalaRunTime
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> SparkContext
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> Statistics
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> String
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> System
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> Tuple2
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> Unit
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> _1
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> _2
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> _3
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> a
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> analiseIndicador
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> apache
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> apply
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> args
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> arrayClass
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> augmentString
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> b
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> caminho
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> caminhoBweb
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> caminhoEleitor
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> candidatoCSV
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> corr
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> correlacaoCandidatoValor
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> dropRight
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> e
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> eleitores
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> eleitoresSecao
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> err
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> exit
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> filter
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> indicador
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> indicadorCombinado
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> indicadorMax
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> indicadorPorcentado
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> indicadorRelacionado
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> java
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> join
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> lang
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> length
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> linalg
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> map
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> materializeClassTag
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> math
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> mllib
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> numVotosPorSecao
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> org
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> package
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> parallelize
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> println
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> qual$1
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> qual$2
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> rdd
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> rddToPairRDDFunctions
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> reduceByKey
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> repartition
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> saveAsTextFile
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> sc
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> scala
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> sortBy
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> spark
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> split
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> stat
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> textFile
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> toDouble
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> toInt
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> toString
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> votos
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> votosCandidato
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> votosCandidatoMapeada
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> votosCandidatoSortedPercent
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> votosCandidatoValorSorted
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> votosMax
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> votosPorcentagem
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> votosValorSortedPercent
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> wrapRefArray
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> x$1
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> x$2
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> x$3
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> x$4
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> x$5
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> x$6
+product stamps:
+29 items
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$1.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$10.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$11.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$12.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$13.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$14.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$15.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$16.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$17.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$18.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$19.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$2.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$20.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$21.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$22.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$23.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$24.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$25.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$26.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$27.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$3.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$4.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$5.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$6.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$7.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$8.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$$anonfun$9.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador$.class -> lastModified(1468792717000)
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/target/scala-2.11/classes/analiseIndicador.class -> lastModified(1468792717000)
+source stamps:
+1 items
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> hash(26aca15e4a9dc6a1fc6b43d834b7a852152ce45c)
+binary stamps:
+4 items
+/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar -> lastModified(1459498886000)
+/Users/Damasceno/.ivy2/cache/org.apache.spark/spark-core_2.11/jars/spark-core_2.11-1.6.2.jar -> lastModified(1466377298000)
+/Users/Damasceno/.ivy2/cache/org.apache.spark/spark-mllib_2.11/jars/spark-mllib_2.11-1.6.2.jar -> lastModified(1466377512000)
+/Users/Damasceno/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.8.jar -> lastModified(1457105192000)
+class names:
+4 items
+/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar -> java.lang.Object
+/Users/Damasceno/.ivy2/cache/org.apache.spark/spark-core_2.11/jars/spark-core_2.11-1.6.2.jar -> org.apache.spark.SparkContext
+/Users/Damasceno/.ivy2/cache/org.apache.spark/spark-mllib_2.11/jars/spark-mllib_2.11-1.6.2.jar -> org.apache.spark.mllib.stat.Statistics$
+/Users/Damasceno/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.8.jar -> scala.Double
+internal apis:
+1 items
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHCL71nuAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAAAdXEAfgAJAAAAFXNyACB4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaFsO9SJ2OFfPAgACSQAEaGFzaEwABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZzt4cOzpHsh0AAZub3RpZnlzcQB+AAyDyu9zdAAEd2FpdHNxAH4ADAI7tgl0AA0kYXNJbnN0YW5jZU9mc3EAfgAMXBR+IXQABmVxdWFsc3NxAH4ADGkBN0N0AAxhc0luc3RhbmNlT2ZzcQB+AAz/io32dAAMc3luY2hyb25pemVkc3EAfgAMaDwfM3QADSRpc0luc3RhbmNlT2ZzcQB+AAyYZDcydAAEbWFpbnNxAH4ADEuAJs50AAlub3RpZnlBbGxzcQB+AAyUzD5WdAAMaXNJbnN0YW5jZU9mc3EAfgAM+UsqM3QAAj09c3EAfgAMheUIR3QABWNsb25lc3EAfgAMm1SSA3QACHRvU3RyaW5nc3EAfgAMxB4je3QAAiE9c3EAfgAMR/C7inQACGdldENsYXNzc3EAfgAMXzwBBHQAAm5lc3EAfgAMT1rXDXQAAmVxc3EAfgAMEH3cvnQAAiMjc3EAfgAMm8XMnHQACGZpbmFsaXplc3EAfgAM5S0XenQACGhhc2hDb2Rlc3EAfgAMS9DsY3QAEGFuYWxpc2VJbmRpY2Fkb3JzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBBeHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnOX52HcEyZ7swIAAUIABWZsYWdzeHAAcQB+ADd1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAIXhzYnRpLmFwaS5BYnN0cmFjdExhenkkU3RyaWN0TGF6eQ1mHGspFiq4AgABTAAFdmFsdWV0ABJMamF2YS9sYW5nL09iamVjdDt4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AFhzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AQUwACWluaGVyaXRlZHEAfgBBTAAHcGFyZW50c3EAfgBBeHEAfgBdc3EAfgBYdXEAfgA8AAAAAXNyAA14c2J0aS5hcGkuRGVmUr6f4ny0NmkCAAJMAApyZXR1cm5UeXBldAAQTHhzYnRpL2FwaS9UeXBlO1sAD3ZhbHVlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1BhcmFtZXRlckxpc3Q7eHEAfgBCcQB+AEt1cQB+AEwAAAAAc3EAfgBOAHEAfgAddXEAfgBQAAAAAHNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADUwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AFx0AARVbml0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgBcc3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAACc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4ADXhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AAVzY2FsYXNyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgB4dXIAGltMeHNidGkuYXBpLlBhcmFtZXRlckxpc3Q79dM6HfKzcO4CAAB4cAAAAAFzcgAXeHNidGkuYXBpLlBhcmFtZXRlckxpc3TWxbwcZEl04wIAAloACmlzSW1wbGljaXRbAApwYXJhbWV0ZXJzdAAcW0x4c2J0aS9hcGkvTWV0aG9kUGFyYW1ldGVyO3hwAHVyABxbTHhzYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXI7z7jFXaXdtW0CAAB4cAAAAAFzcgAZeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlch9FrhfTSbDqAgAEWgAKaGFzRGVmYXVsdEwACG1vZGlmaWVydAAdTHhzYnRpL2FwaS9QYXJhbWV0ZXJNb2RpZmllcjtMAARuYW1lcQB+AA1MAAN0cGVxAH4AZXhwAH5yABt4c2J0aS5hcGkuUGFyYW1ldGVyTW9kaWZpZXIAAAAAAAAAABIAAHhxAH4AU3QABVBsYWludAAEYXJnc3NyABd4c2J0aS5hcGkuUGFyYW1ldGVyaXplZBZs7mkDybt/AgACTAAIYmFzZVR5cGVxAH4AbFsADXR5cGVBcmd1bWVudHN0ABFbTHhzYnRpL2FwaS9UeXBlO3hxAH4AXHNxAH4Aa3QABUFycmF5cQB+AHF1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAXNxAH4Aa3QABlN0cmluZ3NxAH4Ab3NxAH4AcnVxAH4AdQAAAANzcQB+AHd0AARqYXZhc3EAfgB3dAAEbGFuZ3EAfgB8c3EAfgBYdXEAfgA8AAAAAHNxAH4AWHVxAH4AkAAAAAJzcQB+AGt0AAZPYmplY3RxAH4AlHNxAH4Aa3QAA0FueXEAfgBxdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAABzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAVX63g5ddXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQARy9Vc2Vycy9EYW1hc2Nlbm8vRG9jdW1lbnRzL0FuYWxpc2VUU0UvbW9kdWxvMy90YXJnZXQvc2NhbGEtMi4xMS9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUJqyhXkqdxqH8a0PYNLeoUhUs5Fw=
+external apis:
+0 items
+source infos:
+1 items
+/Users/Damasceno/Documents/AnaliseTSE/modulo3/src/main/scala/analiseIndicador.scala -> 
+AAAAAAAAAAA=
+compilations:
+1 items
+0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABVfreDl11cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQARy9Vc2Vycy9EYW1hc2Nlbm8vRG9jdW1lbnRzL0FuYWxpc2VUU0UvbW9kdWxvMy90YXJnZXQvc2NhbGEtMi4xMS9jbGFzc2VzdAABLw==
