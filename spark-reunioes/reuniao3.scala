@@ -211,14 +211,28 @@ val correlacaoMarinaFE: Double = Statistics.corr(votosMarinaSortedPercent, votos
 // DADOS INCONSISTENTES
 // ====================
 
-
 // total do número de votos por seção (somando os candidatos) ---> val numVotosPorSecao
 // eleitores cadastrados em cada secao (diferente de numero de votos por secao) ---> val eleitoresSecao
 
 val votosComparados = numVotosPorSecao.join(eleitoresSecao).map(e => (e._1, e._2._1, e._2._2, e._2._1.toFloat*100/e._2._2)).sortBy(e=> e._4,false)
-
 // formato: (zona.secao, numVotosPorSecao, eleitoresSecao, % de votos recebidos na seção)
+val secaoSemVoto = eleitoresSecao.leftOuterJoin(numVotosPorSecao).filter(e => e._2._2.isDefined == false).map(e => (e._1, e._2._1))
+// formato: (zona.secao, eleitoresSecao)
 
+// eleitores cadastrados em cada zona
+val eleitoresZona = eleitores.map(e => (e(6), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
+// total do número de votos por zona (somando os candidatos)
+val numVotosPorZona = votos.filter(e => e(6) == "PRESIDENTE").map(e => (e(7), e(23).toInt)).reduceByKey((a,b) => a+b)
+
+val votosComparadosZona = numVotosPorZona.join(eleitoresZona).map(e => (e._1, e._2._1, e._2._2, e._2._1.toFloat*100/e._2._2)).sortBy(e=> e._4,false)
+val zonaSemVoto = eleitoresZona.leftOuterJoin(numVotosPorZona).filter(e => e._2._2.isDefined == false).map(e => (e._1, e._2._1))
+
+// eleitores cadastrados no estado
+val eleitoresEstado = eleitores.map(e => (e(16).dropRight(1).toInt)).sum.toInt
+// total do número de votos por estado (somando os candidatos)
+val numVotosPorEstado = votos.filter(e => e(6) == "PRESIDENTE").map(e => (e(23).toInt)).sum.toInt
+
+val votosComparadosEstado = numVotosPorEstado.toFloat*100/eleitoresEstado
 
 // ===============
 // FIM DO MÓDULO 4
