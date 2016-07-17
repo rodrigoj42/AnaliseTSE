@@ -3,15 +3,15 @@ import org.apache.spark.SparkContext._
 
 object CargosDisponiveis {
   def main(args: Array[String]) {
-    if (args.length <> 3) {
+    if (args.length != 3) {
       System.err.println("Uso: CargosDisponiveis <ano> <estado> <turno>")
       System.exit(1)
     }
     val sc = new SparkContext()
 
-    val caminhoBweb = "file:../spark/dados/" + 
+    val caminhoBweb = "file:../spark/dados/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
 
-    val caminhoEleitor = "file:.."
+    val caminhoEleitor = "file:../spark/perfil/" + args(0) + "/" + args(1) + ".txt"
 
     val votos = sc.textFile(caminhoBweb).filter(e => e.length > 0).map(e => e.split("\";\""))
 
@@ -23,4 +23,3 @@ object CargosDisponiveis {
 
   }
 }
-
