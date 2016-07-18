@@ -28,14 +28,14 @@ def root():
 @app.route('/home')
 def home(dropdown=None):
     genMap()
-    estados = ['Rio de Janeiro','S&atilde;o Paulo','Minas Gerais']
+    estados = ['RJ','SP','MG']
     dropdown=[generateDropdownList(ls),generateDropdownList(estados)]
 
     return render_template('index.html',dropdown=dropdown)
 
-@app.route('/showResults?<args>')
+@app.route('/showResults')
 def showResults():
-    l_args = args.split('&')
+    #l_args = args.split('&')
     return render_template('item.html')
 
 @app.route('/item2')
