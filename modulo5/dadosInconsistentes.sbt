@@ -1,4 +1,4 @@
-name := "candidatosDisponiveis"
+name := "dadosInconsistentes"
 
 version := "1.0"
 
