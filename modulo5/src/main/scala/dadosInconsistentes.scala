@@ -52,7 +52,7 @@ object dadosInconsistentes {
     val votosComparadosEstado = sc.parallelize(Array(numVotosPorEstado.toString, eleitoresEstado.toString, (numVotosPorEstado.toFloat*100/eleitoresEstado).toString))
 
   	//export csv
-  	val caminhoCSV = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/dadosInconsistentes" + args(0) + "_" + args(1) + "_" + args(2) + "/"
+  	val caminhoCSV = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/dadosInconsistentes_" + args(0) + "_" + args(1) + "_" + args(2) + "/"
   	votosComparadosSecaoCSV.repartition(1).saveAsTextFile(caminhoCSV + "votosComparadosSecao")
     secaoSemVotoCSV.repartition(1).saveAsTextFile(caminhoCSV + "secaoSemVoto")
     votosComparadosZonaCSV.repartition(1).saveAsTextFile(caminhoCSV + "votosComparadosZona")
