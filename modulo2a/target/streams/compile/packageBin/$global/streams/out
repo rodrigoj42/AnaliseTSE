@@ -1,15 +1,15 @@
-[0m[[0minfo[0m] [0mPackaging /Users/Damasceno/Documents/AnaliseTSE/modulo2/target/scala-2.11/candidatosdisponiveis_2.11-1.0.jar ...[0m
+[0m[[0minfo[0m] [0mPackaging /Users/Damasceno/Documents/AnaliseTSE/modulo2a/target/scala-2.11/candidatosdisponiveis_2.11-1.0.jar ...[0m
 [0m[[0mdebug[0m] [0mInput file mappings:[0m
-[0m[[0mdebug[0m] [0m	candidatosDisponiveis.class[0m
-[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2/target/scala-2.11/classes/candidatosDisponiveis.class[0m
-[0m[[0mdebug[0m] [0m	candidatosDisponiveis$$anonfun$1.class[0m
-[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2/target/scala-2.11/classes/candidatosDisponiveis$$anonfun$1.class[0m
 [0m[[0mdebug[0m] [0m	candidatosDisponiveis$.class[0m
-[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2/target/scala-2.11/classes/candidatosDisponiveis$.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2a/target/scala-2.11/classes/candidatosDisponiveis$.class[0m
 [0m[[0mdebug[0m] [0m	candidatosDisponiveis$$anonfun$3.class[0m
-[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2/target/scala-2.11/classes/candidatosDisponiveis$$anonfun$3.class[0m
-[0m[[0mdebug[0m] [0m	candidatosDisponiveis$$anonfun$4.class[0m
-[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2/target/scala-2.11/classes/candidatosDisponiveis$$anonfun$4.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2a/target/scala-2.11/classes/candidatosDisponiveis$$anonfun$3.class[0m
 [0m[[0mdebug[0m] [0m	candidatosDisponiveis$$anonfun$2.class[0m
-[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2/target/scala-2.11/classes/candidatosDisponiveis$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2a/target/scala-2.11/classes/candidatosDisponiveis$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	candidatosDisponiveis$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2a/target/scala-2.11/classes/candidatosDisponiveis$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	candidatosDisponiveis$$anonfun$4.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2a/target/scala-2.11/classes/candidatosDisponiveis$$anonfun$4.class[0m
+[0m[[0mdebug[0m] [0m	candidatosDisponiveis.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/Damasceno/Documents/AnaliseTSE/modulo2a/target/scala-2.11/classes/candidatosDisponiveis.class[0m
 [0m[[0minfo[0m] [0mDone packaging.[0m

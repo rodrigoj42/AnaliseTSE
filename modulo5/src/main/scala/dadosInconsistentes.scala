@@ -9,8 +9,8 @@ object dadosInconsistentes {
     }
     val sc = new SparkContext()
 
-    val caminhoBweb = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
-    val caminhoPerfil = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/perfil/" + args(0) + "/" + args(1) + ".txt"
+    val caminhoBweb = "file:/home/yago/UFRJ/BigData/AnaliseTSE/spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
+    val caminhoPerfil = "file:/home/yago/UFRJ/BigData/AnaliseTSE/spark/perfil/" + args(0) + "/" + args(1) + ".txt"
 
     val votos = sc.textFile(caminhoBweb).filter(e => e.length > 0).map(e => e.split("\";\""))
     val eleitores = sc.textFile(caminhoPerfil).filter(e => e.length > 0).map(e => e.split("\";\""))
@@ -52,7 +52,7 @@ object dadosInconsistentes {
     val votosComparadosEstado = sc.parallelize(Array(numVotosPorEstado.toString, eleitoresEstado.toString, (numVotosPorEstado.toFloat*100/eleitoresEstado).toString))
 
   	//export csv
-  	val caminhoCSV = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/dadosInconsistentes_" + args(0) + "_" + args(1) + "_" + args(2) + "/"
+  	val caminhoCSV = "/home/yago/UFRJ/BigData/AnaliseTSE/spark/dados/dadosInconsistentes_" + args(0) + "_" + args(1) + "_" + args(2) + "/"
   	votosComparadosSecaoCSV.repartition(1).saveAsTextFile(caminhoCSV + "votosComparadosSecao")
     secaoSemVotoCSV.repartition(1).saveAsTextFile(caminhoCSV + "secaoSemVoto")
     votosComparadosZonaCSV.repartition(1).saveAsTextFile(caminhoCSV + "votosComparadosZona")

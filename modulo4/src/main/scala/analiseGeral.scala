@@ -9,8 +9,8 @@ object analiseGeral {
     }
     val sc = new SparkContext()
 
-    val caminhoBweb = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
-    val caminhoPerfil = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/perfil/" + args(0) + "/" + args(1) + ".txt"
+    val caminhoBweb = "file:/home/yago/UFRJ/BigData/AnaliseTSE/spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
+    val caminhoPerfil = "file:/home/yago/UFRJ/BigData/AnaliseTSE/spark/perfil/" + args(0) + "/" + args(1) + ".txt"
 
     val votos = sc.textFile(caminhoBweb).filter(e => e.length > 0).map(e => e.split("\";\""))
     val eleitores = sc.textFile(caminhoPerfil).filter(e => e.length > 0).map(e => e.split("\";\""))
@@ -51,7 +51,7 @@ object analiseGeral {
     val candidatoPorPerfil = qntdVotosPorPerfil.filter(e=> (e._1._1 == args(4))).sortBy(e=> e._2,false).map(e => (e._1._1 + ";" + e._1._2 + ";" + e._1._3 + ";" + e._1._4 + ";" + e._1._5 + ";" + e._2))
 
   	//export csv
-  	val caminhoCSV = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/analiseGeral_" + args(0) + "_" + args(1) + "_" + args(2) + "_" + args(3) + "_" + args(4)
+  	val caminhoCSV = "/home/yago/UFRJ/BigData/AnaliseTSE/spark/dados/analiseGeral_" + args(0) + "_" + args(1) + "_" + args(2) + "_" + args(3) + "_" + args(4)
   	candidatoPorPerfil.repartition(1).saveAsTextFile(caminhoCSV)
     }
 }
