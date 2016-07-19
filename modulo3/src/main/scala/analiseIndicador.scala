@@ -39,7 +39,7 @@ object analiseIndicador {
 	val eleitoresSecao = eleitores.map(e => (e(6) + "." + e(7), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 
 	// identificadores presentes no arquivo de perfil de eleitores
-	// args(5) indicador, 9 = estadoCivil, 11 = faixaEtaria, 13 = escolaridade, 15 = sexo
+	// args(5) indicador, 8 = estadoCivil, 10 = faixaEtaria, 12 = escolaridade, 14 = sexo
 
 	val indicador = eleitores.map(e => ((e(6) + "." + e(7), e(args(5).toInt)), e(16).dropRight(1).toInt)).reduceByKey((a,b) => a+b)
 
