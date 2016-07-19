@@ -4,7 +4,7 @@ from generateMap import *
 import subprocess
 from os import system, listdir, path
 
-g_path = ""
+dados_gerados = ""
 
 def ignorar_lixo_em(l):
     for i in l: 
@@ -73,32 +73,38 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
+    system('rm static/assets/img/part-00000.png')
     return redirect(url_for('home'))
 
 @app.route('/home')
 def home(imagem=None):
-
+    #global dados_gerados
     imagem='<img src="/static/assets/img/part-00000.png">'
 
     return render_template('index.html',imagem=imagem)
 
 @app.route('/results',methods=['POST'])
 def results():
+    #global dados_gerados
     selecoes = [request.form['ano'], request.form['estado'], request.form['turno']]
     arquivo = gerar_path("cargosDisponiveis", selecoes) + "part-00000"
     cargosDisponiveis = gerar_variavel(selecoes, arquivo, "spark-submit ../modulo1/cargosdisponiveis.jar")
+    
     selecoes.append(request.form['cargo'])
     arquivo = gerar_path("candidatosDisponiveis", selecoes) + "part-00000"
     candidatosDisponiveis = gerar_variavel(selecoes, arquivo, "spark-submit ../modulo2a/candidatosdisponiveis.jar")
+    
     selecoes.append(request.form['candidato'])
     arquivo = gerar_path("porcentagemCandidatos", selecoes) + "part-00000"
     gerar_variavel(selecoes, arquivo, "spark-submit ../modulo2b/porcentagemcandidatos.jar")
+    
     selecoes.append(request.form['criterio'])
     selecoes.append(request.form['filtro'])
     arquivo = gerar_path("analiseIndicador", selecoes) + "part-00000"
     gerar_variavel(selecoes, arquivo, "spark-submit ../modulo3/analiseindicador.jar")
     system("python graficos.py " + arquivo)
     system("cp "+arquivo+".png static/assets/img/part-00000.png")
+    #dados_gerados="Porcentagem de votos do candidato (Eixo Y) x Porcentagem dos eleitores do critério "+selecoes[5]+" - "+selecoes[6]
     return redirect('home#indicator')
 
 @app.route('/item2')
