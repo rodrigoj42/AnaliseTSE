@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="pragma" content="no-cache"/>
     <link rel="shortcut icon" href="{{url_for('static',filename='assets/ico/favicon.png')}}">
 
     <title>Análise TSE</title>
@@ -98,66 +99,117 @@
 	    		<h3>INDICADORES</h3>
 	    		<br><br>
 		    	<form action="/results" method="POST">
-		    	{% if dropdown[0] %}
 		    		Ano
 		    		<select name="ano">
-		    		{{ dropdown[0] | safe }}
+			    		<option value="2014">2014</option>
+						<option value="2012">2012</option>
+						<option value="2010">2010</option>
+						<option value="2008">2008</option>
+						<option value="2006">2006</option>
+						<option value="2004">2004</option>
+						<option value="2002">2002</option>
 		    		</select>
-		    	{% else %}
-		    	{% endif %}
-		    	{% if dropdown[1] %}
 		    		Estado
 		    		<select name="estado">
-		    		{{ dropdown[1] | safe }}
+		    			<option value="AC">AC</option>
+						<option value="AL">AL</option>
+						<option value="AM">AM</option>
+						<option value="AP">AP</option>
+						<option value="BA">BA</option>
+						<option value="BR">BR</option>
+						<option value="CE">CE</option>
+						<option value="DF">DF</option>
+						<option value="ES">ES</option>
+						<option value="GO">GO</option>
+						<option value="MA">MA</option>
+						<option value="MG">MG</option>
+						<option value="MS">MS</option>
+						<option value="MT">MT</option>
+						<option value="PA">PA</option>
+						<option value="PB">PB</option>
+						<option value="PE">PE</option>
+						<option value="PI">PI</option>
+						<option value="PR">PR</option>
+						<option value="RJ">RJ</option>
+						<option value="RN">RN</option>
+						<option value="RO">RO</option>
+						<option value="RR">RR</option>
+						<option value="RS">RS</option>
+						<option value="SC">SC</option>
+						<option value="SE">SE</option>
+						<option value="SP">SP</option>
+						<option value="TO">TO</option>
+						<option value="ZZ">ZZ</option>
 		    		</select>
-		    	{% else %}
-		    	{% endif %}
-		    	{% if dropdown[2] %}
 		    		Turno
 		    		<select name="turno">
-		    		{{ dropdown[2] | safe }}
+		    			<option value="1">1</option>
+						<option value="2">2</option>
 		    		</select>
-		    	{% else %}
-		    	{% endif %}
-		    	{% if dropdown[3] %}
 		    		Cargo
 		    		<select name="cargo">
-		    		{{ dropdown[3] | safe }}
+		    			<option value="PRESIDENTE">PRESIDENTE</option>
+						<option value="VEREADOR">VEREADOR</option>
+						<option value="DEPUTADO ESTADUAL">DEPUTADO ESTADUAL</option>
+						<option value="DEPUTADO FEDERAL">DEPUTADO FEDERAL</option>
+						<option value="GOVERNADOR">GOVERNADOR</option>
+						<option value="PREFEITO">PREFEITO</option>
+						<option value="SENADOR">SENADOR</option>
 		    		</select>
+		    		Candidato
+		    		<select name="candidato">
+		    			<option value="DILMA">DILMA</option>
+						<option value="MARINA SILVA">MARINA SILVA</option>
+						<option value="LEVY FIDELIX">LEVY FIDELIX</option>
+		    		</select>
+		    		<br>Critério
+		    		<select name="criterio">
+		    			<option value="14">SEXO</option>
+						<option value="8">ESTADO CIVIL</option>
+						<option value="12">ESCOLARIDADE</option>
+						<option value="10">FAIXA ETARIA</option>
+		    		</select>
+		    		Filtro
+		    		<select name="filtro">
+		    			<option value="2">MASCULINO</option>
+						<option value="4">FEMININO</option>
+						<option value="0">NAO INFORMADO</option>
+
+						<option value="1">SOLTEIRO</option>
+						<option value="3">CASADO</option>
+						<option value="5">VIUVO</option>
+						<option value="9">DIVORCIADO</option>
+						<option value="7">SEPARADO JUDICIALMENTE</option>
+
+						<option value="-3">INVALIDA</option>
+						<option value="1">16 ANOS</option>
+						<option value="2">17 ANOS</option>
+						<option value="3">18 A 20 ANOS</option>
+						<option value="4">21 A 24 ANOS</option>
+						<option value="5">25 A 34 ANOS</option>
+						<option value="6">35 A 44 ANOS</option>
+						<option value="7">45 A 59 ANOS</option>
+						<option value="8">60 A 69 ANOS</option>
+						<option value="9">70 A 79 ANOS</option>
+						<option value="10">SUPERIOR A 79 ANOS</option>
+
+						<option value="0">NAO INFORMADO</option>
+						<option value="1">ANALFABETO</option>
+						<option value="2">LE E ESCREVE</option>
+						<option value="3">ENSINO FUNDAMENTAL INCOMPLETO</option>
+						<option value="4">ENSINO FUNDAMENTAL COMPLETO</option>
+						<option value="5">ENSINO MEDIO INCOMPLETO</option>
+						<option value="7">SUPERIOR INCOMPLETO</option>
+						<option value="8">SUPERIOR COMPLETO</option>
+		    		</select>
+		    		<br><br>
+		    		<input type="submit" value="Calcular" onClick="window.location.reload()"></input>
+		    	</form>
+		    	<br><br>
+		    	{% if imagem %}
+		    		{{imagem | safe}}
 		    	{% else %}
 		    	{% endif %}
-		    		<br><br>
-		    		<input type="submit" value="Calcular"></input>
-		    	</form>
-
-		    	<!--<script type=text/javascript>
-				  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-				</script>
-				<script type=text/javascript>
-				  $(function() {
-				    $('input#Calcular').bind('click', function() {
-				      $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
-				        txt: $('select[name="ano"]').val()
-				      }, function(data) {
-				        $("#result").text(data.result);
-				      });
-				      return false;
-				    });
-				  });
-				</script>
-				<br>
-				   <span id=result>?</span>
-				<p><a href=#indicator id=calculate>calculate server side</a>-->
-		    	<!--<div id="mapdiv1" style="width: 600px; height: 70px; margin:auto;">
-					<h3>Número de votos por Estado (Marina Silva)</h3>
-		    	</div>
-		    	<div id="mapdiv" style="width: 600px; height: 700px; margin:auto;">
-					<h3>Número de votos da candidata Marina Silva por Estado</h3>
-					<br>
-					<br>
-					<script src="static/assets/js/worldmap.js" type="text/javascript"></script>
-				
-		    	</div>-->
 	    	</div>
     	</div>
     </div>

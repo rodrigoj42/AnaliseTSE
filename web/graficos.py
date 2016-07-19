@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import matplotlib.pyplot as plt
 from sys import argv
 
@@ -17,5 +18,6 @@ def csv(f):
 teste = csv(argv[1])
 
 plt.scatter(teste[1], teste[0])
-plt.show()
+#plt.show()
+print "GRAFICO PLOTADO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 plt.savefig(argv[1])
