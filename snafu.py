@@ -202,11 +202,11 @@ print tabelar(analiseGeral, ["Candidato", "Estado Civil", "Faixa Etaria", "Escol
 print "\n\nSecoes que nao apresentam dados de Votos Recebidos e o seu Numero de Eleitores Correspondente"
 print tabelar(dadosInconsistentes["secaoSemVoto"], ["N Zona", "N Secao", "Numero de Eleitores na Secao"])
 
-print "\n\nComparacao do numero de Votos Recebidos na Secao com o Numero de Eleitores para a mesma"
+print "\n\nComparacao do numero de Votos Recebidos na Secao com o Numero de Eleitores cadastrados"
 print tabelar(dadosInconsistentes["votosComparadosSecao"], ["N Zona", "N Secao", "Numero de Votos na Secao", "Numero de Eleitores na Secao", "Porcentagem de Votos Recebidos na Secao"])
 print "obs: Existem situacoes onde o Numero de Votos Recebidos supera o Numero de Eleitores para a Secao"
 
-print "\n\nComparacao do numero de Votos Recebidos na Zona Eleitoral com o Numero de Eleitores para a mesma"
+print "\n\nComparacao do numero de Votos Recebidos na Zona Eleitoral com o Numero de Eleitores cadastrados"
 print tabelar(dadosInconsistentes["votosComparadosZona"], ["N Zona", "Numero de Votos na Zona", "Numero de Eleitores na Zona", "Porcentagem de Votos Recebidos na Zona"])
 
 print "\n\nComparacao do numero de Votos Recebidos no Estado " + estado_selecionado + " com o Numero de Eleitores para o mesmo"

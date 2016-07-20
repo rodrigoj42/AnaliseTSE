@@ -33,4 +33,4 @@ plt.xlim(0,100)
 print argv[1]
 print "GRAFICO PLOTADO" 
 #plt.show()
-plt.savefig(argv[1])
+plt.savefig(argv[1]+'.png')
