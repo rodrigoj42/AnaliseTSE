@@ -1,4 +1,5 @@
 from os import system, listdir, path
+from prettytable import PrettyTable 
 
 def ignorar_lixo_em(l):
     for i in l: 
@@ -35,10 +36,10 @@ def usuario_seleciona_de_pasta(path, s):
     return (path, selecionado)
 
 def gerar_variavel(arquivo, call, sel):
-    print arquivo
+    #print arquivo
     if path.exists(arquivo) == False:
         selecao = colocar_espacos(sel)
-        print call + selecao 
+        #print call + selecao 
         system(call + selecao)
     try:
         csv = open(arquivo)
@@ -49,6 +50,21 @@ def gerar_variavel(arquivo, call, sel):
         disponiveis.append(line)
     return disponiveis
 
+def tabelar(lista, titulo, selecionado=None, n=5):
+    lista_splitted = []
+    adicionado = False
+    t = PrettyTable(titulo)
+    for i in lista[:n]:
+        splitted = i.split(';')
+        if selecionado == splitted[0]:
+            adicionado = True
+        t.add_row(splitted)
+    if adicionado == False and selecionado != None:
+        for i in lista[n:]:
+            splitted = i.split(';')
+            if selecionado == splitted[0]:
+                t.add_row(splitted)
+    return t
 
 # 1
 perfil_path = "./spark/perfil/"
@@ -74,7 +90,7 @@ selecoes_submit.append("\"" + cargo_selecionado + "\"")
 
 # 3b
 arquivo = gerar_path("porcentagemCandidatos", selecoes) + "part-00000"
-gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo2b/porcentagemcandidatos.jar", selecoes_submit)
+porcentagemCandidatos = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo2b/porcentagemcandidatos.jar", selecoes_submit)
 
 arquivo = gerar_path("candidatosDisponiveis", selecoes) + "part-00000"
 candidatosDisponiveis = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo2a/candidatosdisponiveis.jar", selecoes_submit)
@@ -97,26 +113,26 @@ valores = {  8 : {"SOLTEIRO":1 ,"CASADO":3,"VIUVO":5,"SEPARADO JUDICIALMENTE":7,
             12 : {"NAO INFORMADO":0, "ANALFABETO":1, "LE E ESCREVE":2, "ENSINO FUNDAMENTAL INCOMPLETO":3, "ENSINO FUNDAMENTAL COMPLETO":4, "ENSINO MEDIO INCOMPLETO":5, "SUPERIOR INCOMPLETO":7, "SUPERIOR COMPLETO":8},
             14 : {"NAO INFORMADO":0, "MASCULINO":2 , "FEMININO":4}}
 
-print "Por favor escolha o indicador "
+print "\nPor favor escolha um indicador: "
 indicadores_keys = indicadores.keys()
 for i in range(len(indicadores_keys)):
-    print i, 
-    print '- ' + indicadores_keys[i]
-indicador_selecionado = indicadores[indicadores_keys[input("Selecione um numero ")]]
+    print i+1, 
+    print '- ' + indicadores_keys[i] + '\n' 
+indicador_selecionado = indicadores[indicadores_keys[input("Selecione um numero: ")-1]]
 selecoes.append(str(indicador_selecionado))
 selecoes_submit.append(str(indicador_selecionado))
 
-print "Por favor escolha o valor " 
+print "\nPor favor escolha um valor: " 
 valores_keys = valores[indicador_selecionado].keys()
 for i in range(len(valores_keys)):
-    print i, 
-    print '- ' + valores_keys[i]
-valor_selecionado = valores[indicador_selecionado][valores_keys[input("Selecione um numero ")]]
+    print i+1, 
+    print '- ' + valores_keys[i] + '\n' 
+valor_selecionado = valores[indicador_selecionado][valores_keys[input("Selecione um numero: ")-1]]
 selecoes.append(str(valor_selecionado))
 selecoes_submit.append(str(valor_selecionado))
 
 arquivo = gerar_path("analiseIndicador", selecoes) + "part-00000"
-gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo3/analiseindicador.jar", selecoes_submit)
+analiseIndicador = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo3/analiseindicador.jar", selecoes_submit)
 system("python web/graficos.py " + "\"" + arquivo + "\"")
 
 # Apresentacao 2
@@ -129,17 +145,28 @@ if path.exists(arquivo) == False:
     selecao = colocar_espacos(selecoes_submit)
     call = "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo5/dadosinconsistentes.jar"
     system(call + selecao)
-# try:
-#     csv = open(arquivo)
-# except:
-#     csv = []
-# disponiveis = []
-# for line in csv:
-#     disponiveis.append(line)
+try:
+    csv = open(arquivo)
+except:
+    csv = []
+dadosInconsistentes = []
+for line in csv:
+    dadosInconsistentes.append(line)
 
 # Apresentacao 3
 selecoes.append(cargo_selecionado)
 selecoes.append(candidato_selecionado)
 selecoes_submit.append("\"" + candidato_selecionado + "\"")
 arquivo = gerar_path("analiseGeral", selecoes)
-gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo4/analisegeral.jar", selecoes_submit)
+analiseGeral = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo4/analisegeral.jar", selecoes_submit)
+
+
+# PRINTAR:
+print tabelar(porcentagemCandidatos, ["Candidato", "Numero de Votos", "Porcentagem"], candidato_selecionado)
+print tabelar(analiseIndicador, ["Candidato", "Porcentagem de Votos na Secao", "Valor do Indicador", "Porcentagem do Indicador na Secao"])
+# falta correlacao 
+print tabelar(analiseGeral, ["Candidato", "Estado Civil Prevalente na Secao", "Faixa Etaria", "Escolaridade", "Sexo", "Quantidade de Secoes Ganhadas pelo Candidato"])
+# print tabelar(dadosInconsistentes, )
+
+
+# porcentagemCandidatos, analiseIndicador, analiseGeral, dadosInconsistentes  
