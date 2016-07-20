@@ -54,15 +54,20 @@ def tabelar(lista, titulo, selecionado=None, n=5):
     lista_splitted = []
     adicionado = False
     t = PrettyTable(titulo)
+    k = 0
     for i in lista[:n]:
+        k += 1
         splitted = i.split(';')
         if selecionado == splitted[0]:
             adicionado = True
+        if selecionado != None: splitted.insert(0,k)
         t.add_row(splitted)
     if adicionado == False and selecionado != None:
         for i in lista[n:]:
+            k += 1
             splitted = i.split(';')
             if selecionado == splitted[0]:
+                if selecionado != None: splitted.insert(0,k)
                 t.add_row(splitted)
     return t
 
@@ -183,7 +188,7 @@ nomeValorIndicador = valores[indicador_selecionado].keys()[valores[indicador_sel
 
 # PRINTAR:
 print "\n\nVotos recebidos pelos candidatos para " + cargo_selecionado + " em " + estado_selecionado
-print tabelar(porcentagemCandidatos, ["Candidato", "Numero de Votos", "Porcentagem"], candidato_selecionado)
+print tabelar(porcentagemCandidatos, ["Posicao do Candidato", "Nome do Candidato", "Numero de Votos", "Porcentagem"], candidato_selecionado)
 
 print "\n\nRelacao entre a Porcentagem de Votos do(a) Candidato(a) " + candidato_selecionado + " e a Porcentagem do Indicador " + nomeValorIndicador
 print tabelar(analiseIndicador, ["Candidato", "Porcentagem de Votos na Secao", "Valor do Indicador", "Porcentagem do Indicador na Secao"])
@@ -191,8 +196,8 @@ print "obs: Esses dados sao utilizados para a plotagem do grafico\n"
 
 print tabelar(analiseIndicador_correlacao, ["Correlacao entre a Porcentagem de Votos na Secao e a Porcentagem do Indicador na Secao"])
 
-print "\n\nAnalise do Perfil das Secoes e a Quantidade de Secoes Ganhadas pelo Candidato"
-print tabelar(analiseGeral, ["Candidato", "Estado Civil Prevalente na Secao", "Faixa Etaria", "Escolaridade", "Sexo", "Quantidade de Secoes Ganhadas pelo Candidato"])
+print "\n\nAnalise do Perfil das Secoes e a Quantidade de Secoes Ganhas pelo Candidato"
+print tabelar(analiseGeral, ["Candidato", "Estado Civil", "Faixa Etaria", "Escolaridade", "Sexo", "Quantidade de Secoes Ganhas pelo Candidato"])
 
 print "\n\nSecoes que nao apresentam dados de Votos Recebidos e o seu Numero de Eleitores Correspondente"
 print tabelar(dadosInconsistentes["secaoSemVoto"], ["N Zona", "N Secao", "Numero de Eleitores na Secao"])

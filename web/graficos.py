@@ -31,6 +31,6 @@ plt.xlabel("% do valor do indicador na secao")
 plt.xlim(0,100)
 
 print argv[1]
+print "GRAFICO PLOTADO" 
 #plt.show()
-print "GRAFICO PLOTADO!!!!!!!!!!!!!!!!!!!!!!!!!"
 plt.savefig(argv[1])
