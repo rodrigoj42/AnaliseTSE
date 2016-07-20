@@ -13,10 +13,6 @@ def colocar_espacos(l):
 def gerar_path(s,l):
   dados_path = "./spark/dados/" + s
   for i in l:
-<<<<<<< Updated upstream
-=======
-    #i.replace(" ","\\ ")
->>>>>>> Stashed changes
     dados_path += "_" + i
   return dados_path + "/" 
 
@@ -25,10 +21,7 @@ def usuario_seleciona_de_variavel(disponiveis ,s):
     for i in range(len(disponiveis)):
         if "." in disponiveis[i]:
             disponiveis[i] = disponiveis[i][:disponiveis[i].index(".")]
-<<<<<<< Updated upstream
-=======
             if disponiveis[i][-1] == '\n': disponiveis[i] = disponiveis[i][:-1]
->>>>>>> Stashed changes
         print i + 1,    
         print "- " + disponiveis[i]
     selecionado = disponiveis[input("Selecione um numero: ")-1]
@@ -41,20 +34,11 @@ def usuario_seleciona_de_pasta(path, s):
     path += selecionado + "/"
     return (path, selecionado)
 
-<<<<<<< Updated upstream
-def gerar_variavel(arquivo, call, selecoes):
-    print "ENTROU!!!!!!!!!!!!!!!!!!",arquivo
-    if path.exists(arquivo) == False:
-        selecao = colocar_espacos(selecoes)
-        print "SELECAO",selecao
-        print "CAHAMADA!!!!!!!!!!!!!!!!!!!!!!!___+++++++",call+selecao
-=======
 def gerar_variavel(arquivo, call, sel):
     print arquivo
     if path.exists(arquivo) == False:
         selecao = colocar_espacos(sel)
         print call + selecao 
->>>>>>> Stashed changes
         system(call + selecao)
     try:
         csv = open(arquivo)
@@ -75,33 +59,17 @@ bweb_path, estado_selecionado = usuario_seleciona_de_pasta(bweb_path, "estado")
 bweb_path, turno_selecionado  = usuario_seleciona_de_pasta(bweb_path, "turno")
 
 selecoes = [ano_selecionado, estado_selecionado, turno_selecionado]
-<<<<<<< Updated upstream
-=======
 selecoes_submit = [ano_selecionado, estado_selecionado, turno_selecionado]
->>>>>>> Stashed changes
 
 # 2
 arquivo = gerar_path("cargosDisponiveis", selecoes) + "part-00000"
 
-<<<<<<< Updated upstream
-cargosDisponiveis = gerar_variavel(arquivo, "spark-submit modulo1/cargosdisponiveis.jar")
-print arquivo
-print cargosDisponiveis
-=======
 cargosDisponiveis = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo1/cargosdisponiveis.jar", selecoes)
->>>>>>> Stashed changes
 
 
 # 3a
 cargo_selecionado = usuario_seleciona_de_variavel(cargosDisponiveis, "cargo")
 selecoes.append(cargo_selecionado)
-<<<<<<< Updated upstream
-print cargo_selecionado
-
-arquivo = gerar_path("candidatosDisponiveis", selecoes) + "part-00000"
-print arquivo
-candidatosDisponiveis = gerar_variavel(arquivo, "spark-submit modulo2a/candidatosdisponiveis.jar")
-=======
 selecoes_submit.append("\"" + cargo_selecionado + "\"")
 
 # 3b
@@ -110,28 +78,15 @@ gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/
 
 arquivo = gerar_path("candidatosDisponiveis", selecoes) + "part-00000"
 candidatosDisponiveis = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo2a/candidatosdisponiveis.jar", selecoes_submit)
->>>>>>> Stashed changes
 
 
 candidato_selecionado = usuario_seleciona_de_variavel(candidatosDisponiveis, "candidato")
 selecoes.append(candidato_selecionado)
-<<<<<<< Updated upstream
-
-# 3b
-
-arquivo = gerar_path("porcentagemCandidatos", selecoes) + "part-00000"
-print arquivo
-gerar_variavel(arquivo, "spark-submit modulo2b/porcentagemcandidatos.jar")
-
-# 4
-
-=======
 selecoes_submit.append("\"" + candidato_selecionado + "\"")
 
 
 
 # 4
->>>>>>> Stashed changes
 indicadores = { "Estado civil":  8,
                 "Faixa etaria": 10, 
                 "Escolaridade": 12,
@@ -149,10 +104,7 @@ for i in range(len(indicadores_keys)):
     print '- ' + indicadores_keys[i]
 indicador_selecionado = indicadores[indicadores_keys[input("Selecione um numero ")]]
 selecoes.append(str(indicador_selecionado))
-<<<<<<< Updated upstream
-=======
 selecoes_submit.append(str(indicador_selecionado))
->>>>>>> Stashed changes
 
 print "Por favor escolha o valor " 
 valores_keys = valores[indicador_selecionado].keys()
@@ -161,24 +113,6 @@ for i in range(len(valores_keys)):
     print '- ' + valores_keys[i]
 valor_selecionado = valores[indicador_selecionado][valores_keys[input("Selecione um numero ")]]
 selecoes.append(str(valor_selecionado))
-<<<<<<< Updated upstream
-
-print "SELECOES FORA DO MOD 3 ", selecoes
-arquivo = gerar_path("analiseIndicador", selecoes) + "part-00000"
-gerar_variavel(arquivo, "spark-submit modulo3/analiseindicador.jar")
-system("python web/graficos.py " + arquivo)
-
-# Apresentacao 2
-selecoes = [ano_selecionado, estado_selecionado, turno_selecionado, cargo_selecionado]
-arquivo = gerar_path("dadosInconsistentes", selecoes)
-print arquivo
-gerar_variavel(arquivo, "spark-submit modulo5/dadosinconsistentes.jar")
-
-# Apresentacao 3
-selecoes.append(candidato_selecionado)
-arquivo = gerar_path("analiseGeral", selecoes)
-gerar_variavel(arquivo, "spark-submit modulo4/analisegeral.jar")
-=======
 selecoes_submit.append(str(valor_selecionado))
 
 arquivo = gerar_path("analiseIndicador", selecoes) + "part-00000"
@@ -209,4 +143,3 @@ selecoes.append(candidato_selecionado)
 selecoes_submit.append("\"" + candidato_selecionado + "\"")
 arquivo = gerar_path("analiseGeral", selecoes)
 gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo4/analisegeral.jar", selecoes_submit)
->>>>>>> Stashed changes
