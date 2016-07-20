@@ -101,7 +101,6 @@ selecoes.append(candidato_selecionado)
 selecoes_submit.append("\"" + candidato_selecionado + "\"")
 
 
-
 # 4
 indicadores = { "Estado civil":  8,
                 "Faixa etaria": 10, 
@@ -135,6 +134,10 @@ arquivo = gerar_path("analiseIndicador", selecoes) + "part-00000"
 analiseIndicador = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo3/analiseindicador.jar", selecoes_submit)
 system("python web/graficos.py " + "\"" + arquivo + "\"")
 
+selecoes.append("correlacao")
+arquivo = gerar_path("analiseIndicador", selecoes) + "part-00000"
+analiseIndicador_correlacao = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo3/analiseindicador.jar", selecoes_submit)
+
 # Apresentacao 2
 
 selecoes = [ano_selecionado, estado_selecionado, turno_selecionado]
@@ -145,28 +148,62 @@ if path.exists(arquivo) == False:
     selecao = colocar_espacos(selecoes_submit)
     call = "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo5/dadosinconsistentes.jar"
     system(call + selecao)
-try:
-    csv = open(arquivo)
-except:
-    csv = []
-dadosInconsistentes = []
-for line in csv:
-    dadosInconsistentes.append(line)
+
+dadosInconsistentes = {}
+
+for i in ["secaoSemVoto", "votosComparadosSecao", "votosComparadosZona", "votosComparadosEstado"]:
+    try:
+        csv = open(arquivo + i + "/part-00000")
+    except:
+        print "***** ERRO: nao abriu " + i + " dos dados inconsistentes *****"
+        csv = []
+    dadosInconsistentesTmp = []
+    for line in csv:
+        dadosInconsistentesTmp.append(line)
+    dadosInconsistentes[i] = dadosInconsistentesTmp
+
 
 # Apresentacao 3
 selecoes.append(cargo_selecionado)
 selecoes.append(candidato_selecionado)
 selecoes_submit.append("\"" + candidato_selecionado + "\"")
-arquivo = gerar_path("analiseGeral", selecoes)
+arquivo = gerar_path("analiseGeral", selecoes)  + "part-00000"
 analiseGeral = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo4/analisegeral.jar", selecoes_submit)
 
 
+# Preparando dadosInconsistentes["votosComparadosEstado"] e nomeValorIndicador para printar
+votosComparadosEstado = ""
+for i in dadosInconsistentes["votosComparadosEstado"]:
+    votosComparadosEstado += i.replace("\n",";")
+
+dadosInconsistentes["votosComparadosEstado"] = [votosComparadosEstado[:-1] + '\n']
+
+nomeValorIndicador = valores[indicador_selecionado].keys()[valores[indicador_selecionado].values().index(valor_selecionado)]
+
+
 # PRINTAR:
+print "\n\nVotos recebidos pelos candidatos para " + cargo_selecionado + " em " + estado_selecionado
 print tabelar(porcentagemCandidatos, ["Candidato", "Numero de Votos", "Porcentagem"], candidato_selecionado)
+
+print "\n\nRelacao entre a Porcentagem de Votos do(a) Candidato(a) " + candidato_selecionado + " e a Porcentagem do Indicador " + nomeValorIndicador
 print tabelar(analiseIndicador, ["Candidato", "Porcentagem de Votos na Secao", "Valor do Indicador", "Porcentagem do Indicador na Secao"])
-# falta correlacao 
+print "obs: Esses dados sao utilizados para a plotagem do grafico\n"
+
+print tabelar(analiseIndicador_correlacao, ["Correlacao entre a Porcentagem de Votos na Secao e a Porcentagem do Indicador na Secao"])
+
+print "\n\nAnalise do Perfil das Secoes e a Quantidade de Secoes Ganhadas pelo Candidato"
 print tabelar(analiseGeral, ["Candidato", "Estado Civil Prevalente na Secao", "Faixa Etaria", "Escolaridade", "Sexo", "Quantidade de Secoes Ganhadas pelo Candidato"])
-# print tabelar(dadosInconsistentes, )
 
+print "\n\nSecoes que nao apresentam dados de Votos Recebidos e o seu Numero de Eleitores Correspondente"
+print tabelar(dadosInconsistentes["secaoSemVoto"], ["N Zona", "N Secao", "Numero de Eleitores na Secao"])
 
-# porcentagemCandidatos, analiseIndicador, analiseGeral, dadosInconsistentes  
+print "\n\nComparacao do numero de Votos Recebidos na Secao com o Numero de Eleitores para a mesma"
+print tabelar(dadosInconsistentes["votosComparadosSecao"], ["N Zona", "N Secao", "Numero de Votos na Secao", "Numero de Eleitores na Secao", "Porcentagem de Votos Recebidos na Secao"])
+print "obs: Existem situacoes onde o Numero de Votos Recebidos supera o Numero de Eleitores para a Secao"
+
+print "\n\nComparacao do numero de Votos Recebidos na Zona Eleitoral com o Numero de Eleitores para a mesma"
+print tabelar(dadosInconsistentes["votosComparadosZona"], ["N Zona", "Numero de Votos na Zona", "Numero de Eleitores na Zona", "Porcentagem de Votos Recebidos na Zona"])
+
+print "\n\nComparacao do numero de Votos Recebidos no Estado " + estado_selecionado + " com o Numero de Eleitores para o mesmo"
+print tabelar(dadosInconsistentes["votosComparadosEstado"], ["Numero de Votos no Estado", "Numero de Eleitores no Estado", "Porcentagem de Votos Recebidos no Estado"])
+
