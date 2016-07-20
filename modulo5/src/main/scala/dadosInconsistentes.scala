@@ -9,8 +9,11 @@ object dadosInconsistentes {
     }
     val sc = new SparkContext()
 
-    val caminhoBweb = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
-    val caminhoPerfil = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/perfil/" + args(0) + "/" + args(1) + ".txt"
+    val caminhoBweb = "file:/home/yago/UFRJ/BigData/AnaliseTSE/spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
+    val caminhoPerfil = "file:/home/yago/UFRJ/BigData/AnaliseTSE/spark/perfil/" + args(0) + "/" + args(1) + ".txt"
+
+    //val caminhoBweb = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
+    //val caminhoPerfil = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/perfil/" + args(0) + "/" + args(1) + ".txt"
 
     val votos = sc.textFile(caminhoBweb).filter(e => e.length > 0).map(e => e.split("\";\""))
     val eleitores = sc.textFile(caminhoPerfil).filter(e => e.length > 0).map(e => e.split("\";\""))
@@ -33,7 +36,7 @@ object dadosInconsistentes {
     val votosComparadosSecao = numVotosPorSecao.join(eleitoresSecao).map(e => (e._1, e._2._1, e._2._2, e._2._1.toFloat*100/e._2._2)).sortBy(e=> e._4,false)
     // formato: (zona.secao, numVotosPorSecao, eleitoresSecao, % de votos recebidos na seção)
     val votosComparadosSecaoCSV = votosComparadosSecao.map(e => (e._1.split("\\.")(0) + ";" + e._1.split("\\.")(1) + ";" + e._2 + ";" + e._3 + ";" + e._4))
-    val secaoSemVoto = eleitoresSecao.leftOuterJoin(numVotosPorSecao).filter(e => e._2._2.isDefined == false).map(e => (e._1.split("\\."), e._2._1))
+    val secaoSemVoto = eleitoresSecao.leftOuterJoin(numVotosPorSecao).filter(e => e._2._2.isDefined == false).map(e => (e._1.split("\\."), e._2._1)).sortBy(e=> e._2,false)
     val secaoSemVotoCSV = secaoSemVoto.map(e => (e._1(0) + ";" + e._1(1) + ";" + e._2))
     // formato: (zona.secao, eleitoresSecao)
 
@@ -52,7 +55,8 @@ object dadosInconsistentes {
     val votosComparadosEstado = sc.parallelize(Array(numVotosPorEstado.toString, eleitoresEstado.toString, (numVotosPorEstado.toFloat*100/eleitoresEstado).toString))
 
   	//export csv
-  	val caminhoCSV = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/dadosInconsistentes_" + args(0) + "_" + args(1) + "_" + args(2) + "/"
+  	val caminhoCSV = "/home/yago/UFRJ/BigData/AnaliseTSE/spark/dados/dadosInconsistentes_" + args(0) + "_" + args(1) + "_" + args(2) + "/"
+    //val caminhoCSV = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/dadosInconsistentes_" + args(0) + "_" + args(1) + "_" + args(2) + "/"
   	votosComparadosSecaoCSV.repartition(1).saveAsTextFile(caminhoCSV + "votosComparadosSecao")
     secaoSemVotoCSV.repartition(1).saveAsTextFile(caminhoCSV + "secaoSemVoto")
     votosComparadosZonaCSV.repartition(1).saveAsTextFile(caminhoCSV + "votosComparadosZona")
