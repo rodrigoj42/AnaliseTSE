@@ -6,12 +6,12 @@
 	<script src="static/assets/js/ammap_amcharts_extension.js" type="text/javascript"></script>
 	<script src="static/assets/js/brazilLow.js" type="text/javascript"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 	<link rel="stylesheet" href="static/assets/css/ammap.css" type="text/css" media="all" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta equiv="refresh" content="5:/home#indicator#"/>
     <link rel="shortcut icon" href="{{url_for('static',filename='assets/ico/favicon.png')}}">
 
     <title>Análise TSE</title>
@@ -92,26 +92,28 @@
 	
     <body data-spy="scroll" data-offset="0" data-target="#theMenu">
 
+    
     <section id="indicator" name="indicator"></section>
     <div id="dg">
 	    <div class="container">
 	    	<div class="row">
 	    		<h3>INDICADORES</h3>
 	    		<br><br>
-		    	<form action="/results" method="POST">
+
+		    	<form id="formInd" action="/results" method="POST">
 		    		Ano
-		    		<select name="ano">
-			    		<option value="2014">2014</option>
+		    		<select id="ano" name="ano" onchange=getEstado()>
+			    		<!--<option value="2014">2014</option>
 						<option value="2012">2012</option>
 						<option value="2010">2010</option>
 						<option value="2008">2008</option>
 						<option value="2006">2006</option>
 						<option value="2004">2004</option>
-						<option value="2002">2002</option>
+						<option value="2002">2002</option>-->
 		    		</select>
 		    		Estado
-		    		<select name="estado">
-		    			<option value="AC">AC</option>
+		    		<select id="estado" name="estado" onchange=getTurno()>
+		    			<!-- <option value="AC">AC</option>
 						<option value="AL">AL</option>
 						<option value="AM">AM</option>
 						<option value="AP">AP</option>
@@ -139,39 +141,36 @@
 						<option value="SE">SE</option>
 						<option value="SP">SP</option>
 						<option value="TO">TO</option>
-						<option value="ZZ">ZZ</option>
+						<option value="ZZ">ZZ</option> -->
 		    		</select>
 		    		Turno
-		    		<select name="turno">
-		    			<option value="1">1</option>
-						<option value="2">2</option>
+		    		<select id="turno" name="turno" onchange=getCargo()>
+		    			<!-- <option value="1">1</option>
+						<option value="2">2</option> -->
 		    		</select>
 		    		Cargo
-		    		<select name="cargo">
-		    			<option value="PRESIDENTE">PRESIDENTE</option>
+		    		<select id="cargo" name="cargo" onchange=getCandidato()>
+		    			<!-- <option value="PRESIDENTE">PRESIDENTE</option>
 						<option value="VEREADOR">VEREADOR</option>
 						<option value="DEPUTADO ESTADUAL">DEPUTADO ESTADUAL</option>
 						<option value="DEPUTADO FEDERAL">DEPUTADO FEDERAL</option>
 						<option value="GOVERNADOR">GOVERNADOR</option>
 						<option value="PREFEITO">PREFEITO</option>
-						<option value="SENADOR">SENADOR</option>
+						<option value="SENADOR">SENADOR</option> -->
 		    		</select>
 		    		Candidato
-		    		<select name="candidato">
-		    			<option value="DILMA">DILMA</option>
+		    		<select id="candidato" name="candidato" onchange=getCriterio()>
+		    			<!-- <option value="DILMA">DILMA</option>
 						<option value="MARINA SILVA">MARINA SILVA</option>
-						<option value="LEVY FIDELIX">LEVY FIDELIX</option>
+						<option value="LEVY FIDELIX">LEVY FIDELIX</option> -->
 		    		</select>
 		    		<br>Critério
-		    		<select name="criterio">
-		    			<option value="14">SEXO</option>
-						<option value="8">ESTADO CIVIL</option>
-						<option value="12">ESCOLARIDADE</option>
-						<option value="10">FAIXA ETARIA</option>
+		    		<select id="criterio" name="criterio" onchange=getFiltro()>
+
 		    		</select>
 		    		Filtro
-		    		<select name="filtro">
-		    			<option value="2">MASCULINO</option>
+		    		<select id="filtro" name="filtro">
+		    			<!-- <option value="2">MASCULINO</option>
 						<option value="4">FEMININO</option>
 						<option value="0">NAO INFORMADO</option>
 
@@ -200,16 +199,130 @@
 						<option value="4">ENSINO FUNDAMENTAL COMPLETO</option>
 						<option value="5">ENSINO MEDIO INCOMPLETO</option>
 						<option value="7">SUPERIOR INCOMPLETO</option>
-						<option value="8">SUPERIOR COMPLETO</option>
+						<option value="8">SUPERIOR COMPLETO</option> -->
 		    		</select>
 		    		<br><br>
-		    		<input type="submit" value="Calcular" onClick="window.location.reload()"></input>
+		    		<input type="submit" value="Gerar Gráfico"></input>
+		    		<script>
+		    			$.post("/getAno", 
+		    				function(data){
+		    					var option=document.getElementById("ano");
+		    					var s="<option>Selecione</option>";
+		    					var select=data.split(";");
+		    					for(var i = 0; i < select.length; i++){
+		    						s+="<option value='"+select[i]+"'>"+select[i]+"</option>";
+		    					}//for
+		    						option.innerHTML=s;
+		    					});
+
+		    			function getEstado(){
+		    				var ano=document.getElementById("ano").value;
+		    				$.post( "/getEstado", { ano: ano })
+		    				.done(function(data){
+		    					var option=document.getElementById("estado");
+		    					var s="<option>Selecione</option>";
+		    					var select=data.split(";");
+		    					for(var i = 0; i < select.length; i++){
+		    						s+="<option value='"+select[i]+"'>"+select[i]+"</option>";
+		    					}//for
+		    						option.innerHTML=s;
+		    					});
+		    			}
+		    			function getTurno(){
+		    				var ano=document.getElementById("ano").value;
+		    				var estado=document.getElementById("estado").value;
+		    				$.post( "/getTurno", { ano: ano ,estado:estado})
+		    				.done(function(data){
+		    					var option=document.getElementById("turno");
+		    					var s="<option>Selecione</option>";
+		    					var select=data.split(";");
+		    					for(var i = 0; i < select.length; i++){
+		    						s+="<option value='"+select[i]+"'>"+select[i]+"</option>";
+		    					}//for
+		    						option.innerHTML=s;
+		    					});
+		    			}
+		    			function getCargo(){
+		    				var ano=document.getElementById("ano").value;
+		    				var estado=document.getElementById("estado").value;
+		    				var turno=document.getElementById("turno").value;
+		    				$.post( "/getCargo", { ano: ano ,estado:estado, turno:turno})
+		    				.done(function(data){
+		    					var option=document.getElementById("cargo");
+		    					var s="<option>Selecione</option>";
+		    					var select=data.split(";");
+		    					for(var i = 0; i < select.length; i++){
+		    						s+="<option value='"+select[i]+"'>"+select[i]+"</option>";
+		    					}//for
+		    						option.innerHTML=s;
+		    					});
+		    			}
+		    			function getCandidato(){
+		    				var ano=document.getElementById("ano").value;
+		    				var estado=document.getElementById("estado").value;
+		    				var turno=document.getElementById("turno").value;
+		    				var cargo=document.getElementById("cargo").value;
+		    				$.post( "/getCandidato", { ano: ano ,estado:estado, turno:turno, cargo:cargo})
+		    				.done(function(data){
+		    					var option=document.getElementById("candidato");
+		    					var s="<option>Selecione</option>";
+		    					var select=data.split(";");
+		    					for(var i = 0; i < select.length; i++){
+		    						s+="<option value='"+select[i]+"'>"+select[i]+"</option>";
+		    					}//for
+		    						option.innerHTML=s;
+		    					});
+		    			}
+		    			function getCriterio(){
+	    					var option=document.getElementById("criterio");
+	    					var s="<option>Selecione</option>"+"<option value=\"14\">SEXO</option>"+"<option value=\"8\">ESTADO CIVIL</option>"+"<option value=\"12\">ESCOLARIDADE</option>"+"<option value=\"10\">FAIXA ETARIA</option>"
+	    						option.innerHTML=s;
+	    					}
+		    			function getFiltro(){
+		    				var criterio=document.getElementById("criterio").value;
+		    				$.post( "/getFiltro", { criterio:criterio})
+		    				.done(function(data){
+		    					var option=document.getElementById("filtro");
+		    						option.innerHTML=data;
+		    					});
+		    			}
+		    			function gerarGrafico(){
+		    				var ano=document.getElementById("ano").value;
+		    				var estado=document.getElementById("estado").value;
+		    				var turno=document.getElementById("turno").value;
+		    				var cargo=document.getElementById("cargo").value;
+		    				var candidato=document.getElementById("candidato").value;
+		    				var criterio=document.getElementById("criterio").value;
+		    				var filtro=document.getElementById("filtro").value;
+		    				var imagem=document.getElementById("img1");
+		    				// $.post( "/gerarGrafico", { ano: ano ,
+		    				// 						estado:estado, 
+		    				// 						 turno:turno, 
+		    				// 						 cargo:cargo, 
+		    				// 					 candidato:candidato,
+		    				// 					  criterio:criterio,
+		    				// 						filtro:filtro})
+		    				// .done(function(data){
+		    				// 	alert(data)
+		    				// 	var option=document.getElementById("grafico");
+		    				// 	imagem.attr('src',data);
+		    				// 	});
+		    				var s="static/assets/img/"+ano+"_"+estado+"_"+turno+"_"+cargo+"_"+candidato+"_"+criterio+"_"+filtro+"_part-00000.png"
+		    				imagem.innerHTML="<img src=\""+s+"\">" 
+
+		    			}
+						//$.post( url, { name: "John", time: "2pm" })
+						//	.done(function( data ) {
+							//alert( "Data Loaded: " + data );
+						//});
+					</script>
 		    	</form>
 		    	<br><br>
+		    	<p id="img1"></p>
 		    	{% if imagem %}
-		    		{{imagem | safe}}
-		    	{% else %}
-		    	{% endif %}
+		    		{{ imagem | safe }}
+		    	{%else%}
+		    	{%endif%}
 	    	</div>
     	</div>
     </div>
