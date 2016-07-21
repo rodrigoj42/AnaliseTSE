@@ -128,6 +128,7 @@ selecoes_submit.append(str(indicador_selecionado))
 
 print "\nPor favor escolha um valor: " 
 valores_keys = valores[indicador_selecionado].keys()
+valores_keys.sort()
 for i in range(len(valores_keys)):
     print i+1, 
     print '- ' + valores_keys[i] + '\n' 

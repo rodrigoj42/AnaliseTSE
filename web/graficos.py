@@ -28,11 +28,11 @@ plt.scatter(x, y)
 plt.ylabel("% de votos do candidato na secao")
 plt.ylim(0)
 plt.xlabel("% do valor do indicador na secao") 
-plt.xlim(0,100)
+plt.xlim(0)
 
 fit = np.polyfit(x,y,1)
 fit_fn = np.poly1d(fit)
-plt.plot(x,fit_fn(x), '--k')
+plt.plot(x,fit_fn(x), '--k', linewidth=3)
 
 
 print argv[1]
