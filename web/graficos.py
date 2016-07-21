@@ -30,7 +30,12 @@ plt.ylim(0)
 plt.xlabel("% do valor do indicador na secao") 
 plt.xlim(0,100)
 
+fit = np.polyfit(x,y,1)
+fit_fn = np.poly1d(fit)
+plt.plot(x,fit_fn(x), '--k')
+
+
 print argv[1]
 print "GRAFICO PLOTADO" 
-#plt.show()
+plt.show()
 plt.savefig(argv[1]+'.png')
