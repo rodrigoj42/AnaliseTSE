@@ -20,9 +20,9 @@ def gerar_path(s,l):
 def usuario_seleciona_de_variavel(disponiveis ,s):
     print "\nPor favor escolha um %s:" % s
     for i in range(len(disponiveis)):
-        if "." in disponiveis[i]:
-            disponiveis[i] = disponiveis[i][:disponiveis[i].index(".")]
-            if disponiveis[i][-1] == '\n': disponiveis[i] = disponiveis[i][:-1]
+        if ".txt" in disponiveis[i]:
+            disponiveis[i] = disponiveis[i][:disponiveis[i].index(".txt")]
+            #if disponiveis[i][-1] == '\n': disponiveis[i] = disponiveis[i][:-1]
         print i + 1,    
         print "- " + disponiveis[i]
     selecionado = disponiveis[input("Selecione um numero: ")-1]
