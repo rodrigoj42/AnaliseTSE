@@ -37,5 +37,5 @@ plt.plot(x,fit_fn(x), '--k', linewidth=3)
 
 print argv[1]
 print "GRAFICO PLOTADO" 
-#plt.show()
+plt.show()
 plt.savefig(argv[1]+'.png')
