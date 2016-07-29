@@ -85,7 +85,7 @@ selecoes_submit = [ano_selecionado, estado_selecionado, turno_selecionado]
 # 2
 arquivo = gerar_path("cargosDisponiveis", selecoes) + "part-00000"
 
-cargosDisponiveis = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo1/cargosdisponiveis.jar", selecoes)
+cargosDisponiveis = gerar_variavel(arquivo, "spark-submit  modulo1/cargosdisponiveis.jar", selecoes)
 
 
 # 3a
@@ -95,10 +95,10 @@ selecoes_submit.append("\"" + cargo_selecionado + "\"")
 
 # 3b
 arquivo = gerar_path("porcentagemCandidatos", selecoes) + "part-00000"
-porcentagemCandidatos = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo2b/porcentagemcandidatos.jar", selecoes_submit)
+porcentagemCandidatos = gerar_variavel(arquivo, "spark-submit  modulo2b/porcentagemcandidatos.jar", selecoes_submit)
 
 arquivo = gerar_path("candidatosDisponiveis", selecoes) + "part-00000"
-candidatosDisponiveis = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo2a/candidatosdisponiveis.jar", selecoes_submit)
+candidatosDisponiveis = gerar_variavel(arquivo, "spark-submit  modulo2a/candidatosdisponiveis.jar", selecoes_submit)
 
 
 candidato_selecionado = usuario_seleciona_de_variavel(candidatosDisponiveis, "candidato")
@@ -137,11 +137,11 @@ selecoes.append(str(valor_selecionado))
 selecoes_submit.append(str(valor_selecionado))
 
 arquivo_grafico = gerar_path("analiseIndicador", selecoes) + "part-00000"
-analiseIndicador = gerar_variavel(arquivo_grafico, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo3/analiseindicador.jar", selecoes_submit)
+analiseIndicador = gerar_variavel(arquivo_grafico, "spark-submit  modulo3/analiseindicador.jar", selecoes_submit)
 
 selecoes.append("correlacao")
 arquivo = gerar_path("analiseIndicador", selecoes) + "part-00000"
-analiseIndicador_correlacao = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo3/analiseindicador.jar", selecoes_submit)
+analiseIndicador_correlacao = gerar_variavel(arquivo, "spark-submit  modulo3/analiseindicador.jar", selecoes_submit)
 
 # Apresentacao 2
 
@@ -151,7 +151,7 @@ arquivo = gerar_path("dadosInconsistentes", selecoes)
 
 if path.exists(arquivo) == False:
     selecao = colocar_espacos(selecoes_submit)
-    call = "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo5/dadosinconsistentes.jar"
+    call = "spark-submit  modulo5/dadosinconsistentes.jar"
     system(call + selecao)
 
 dadosInconsistentes = {}
@@ -173,7 +173,7 @@ selecoes.append(cargo_selecionado)
 selecoes.append(candidato_selecionado)
 selecoes_submit.append("\"" + candidato_selecionado + "\"")
 arquivo = gerar_path("analiseGeral", selecoes)  + "part-00000"
-analiseGeral = gerar_variavel(arquivo, "/Users/Damasceno/Desktop/spark-1.6.1-bin-hadoop2.6/bin/spark-submit  modulo4/analisegeral.jar", selecoes_submit)
+analiseGeral = gerar_variavel(arquivo, "spark-submit  modulo4/analisegeral.jar", selecoes_submit)
 
 
 # Preparando dadosInconsistentes["votosComparadosEstado"] e nomeValorIndicador para printar

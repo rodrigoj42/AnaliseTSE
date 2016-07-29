@@ -9,16 +9,16 @@ object candidatosDisponiveis {
     }
     val sc = new SparkContext()
 
-    val caminhoBweb = "file:/Users/Damasceno/Documents/AnaliseTSE/spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
+    val caminhoBweb = "./spark/bweb/" + args(0) + "/" + args(1) + "/" + args(2) + ".txt"
 
     val votos = sc.textFile(caminhoBweb).filter(e => e.length > 0).map(e => e.split("\";\""))
 
-	// #4 LEVANTAR CANDIDATOS DISPONÍVEIS *
+	// #4 LEVANTAR CANDIDATOS DISPONÍVEIS
 	// ==================================
 
 	val candidatosDisponiveis = votos.filter(e => e(6) == args(3)).map(e => e(22)).distinct()
 	//export csv
-	val caminhoCSV = "/Users/Damasceno/Documents/AnaliseTSE/spark/dados/candidatosDisponiveis_" + args(0) + "_" + args(1) + "_" + args(2) + "_" + args(3)
+	val caminhoCSV = "./spark/dados/candidatosDisponiveis_" + args(0) + "_" + args(1) + "_" + args(2) + "_" + args(3)
 	candidatosDisponiveis.repartition(1).saveAsTextFile(caminhoCSV)
   }
 }
